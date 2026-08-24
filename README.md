@@ -7,14 +7,14 @@
 </div>
 
 <br />
+<br />
 
 I'm a Software Engineering student at UET Peshawar building full-stack apps and AI tools — from interface to backend.
 
 <br />
+<br />
 
----
-
-### NOW / 2026
+### <span style="color: #8B6F47;">01 /</span> NOW
 
 **Cross-platform apps**  
 Building Flutter applications for real campus and personal use cases.
@@ -26,10 +26,9 @@ Experimenting with FastAPI services and LLM API integrations, mostly in Python.
 Taking projects from interface design through backend implementation and deployment.
 
 <br />
+<br />
 
----
-
-### SELECTED WORK
+### <span style="color: #8B6F47;">02 /</span> SELECTED WORK
 
 <br />
 
@@ -62,18 +61,24 @@ Taking projects from interface design through backend implementation and deploym
 </div>
 
 <br />
+<br />
 
----
-
-### TOOLBOX
-
-`Flutter` &nbsp;·&nbsp; `Dart` &nbsp;·&nbsp; `Python` &nbsp;·&nbsp; `FastAPI` &nbsp;·&nbsp; `Firebase` &nbsp;·&nbsp; `React` &nbsp;·&nbsp; `Next.js` &nbsp;·&nbsp; `JavaScript` &nbsp;·&nbsp; `C++` &nbsp;·&nbsp; `Git` &nbsp;·&nbsp; `Docker`
+### <span style="color: #8B6F47;">03 /</span> TOOLBOX
 
 <br />
 
----
+<div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/toolbox-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="assets/toolbox-light.svg">
+    <img src="assets/toolbox-dark.svg" alt="Engineering Toolbox Strip" width="100%" />
+  </picture>
+</div>
 
-### CODE COMPOSITION
+<br />
+<br />
+
+### <span style="color: #8B6F47;">04 /</span> CODE COMPOSITION
 
 <br />
 
@@ -86,26 +91,24 @@ Taking projects from interface design through backend implementation and deploym
 </div>
 
 <br />
+<br />
 
----
-
-### JOURNEY
+### <span style="color: #8B6F47;">05 /</span> JOURNEY
 
 <br />
 
-`2026` &nbsp;——&nbsp; **Kiro Hackathon** &mdash; *Ship With Kiro*  
-Built CloudGuardian AI: an LLM-powered cloud monitoring tool with TypeScript and FastAPI backend.
-
-`2023 – present` &nbsp;——&nbsp; **Software Engineering** &mdash; *UET Peshawar*  
-Learning computer science fundamentals, data structures, algorithms, and software architecture.
-
-<!-- TODO: Add verified internship details if applicable -->
+<div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/journey-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="assets/journey-light.svg">
+    <img src="assets/journey-dark.svg" alt="Engineering Journey Timeline" width="100%" />
+  </picture>
+</div>
 
 <br />
+<br />
 
----
-
-### GITHUB PULSE
+### <span style="color: #8B6F47;">06 /</span> REPOSITORY RHYTHM
 
 <br />
 
@@ -113,22 +116,20 @@ Learning computer science fundamentals, data structures, algorithms, and softwar
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/pulse-dark.svg">
     <source media="(prefers-color-scheme: light)" srcset="assets/pulse-light.svg">
-    <img src="assets/pulse-dark.svg" alt="GitHub Pulse Activity Visualization" width="100%" />
+    <img src="assets/pulse-dark.svg" alt="Repository Rhythm Activity Visualization" width="100%" />
   </picture>
 </div>
 
 <br />
+<br />
 
----
-
-### CONNECT
+### <span style="color: #8B6F47;">07 /</span> CONNECT
 
 * [hamzataif.me](https://hamzataif.me) &nbsp;—&nbsp; Portfolio ↗
 * [github.com/HamzaTaif](https://github.com/HamzaTaif) &nbsp;—&nbsp; GitHub ↗
 * [@Hamza\_Taif\_Khan](https://x.com/Hamza_Taif_Khan) &nbsp;—&nbsp; X / Twitter ↗
-<!-- TODO: Add LinkedIn URL once available -->
-<!-- TODO: Add email once available -->
 
+<br />
 <br />
 
 <div align="center">

@@ -1,7 +1,6 @@
 import os
 import json
 import urllib.request
-import urllib.error
 
 def fetch_repo_meta(username, repo_name):
     url = f"https://api.github.com/repos/{username}/{repo_name}"
@@ -31,14 +30,17 @@ def create_card_svg(project, is_dark=True, meta=None):
     text_muted = "#A6A29A" if is_dark else "#6E6A63"
     line_color = "#3A3935" if is_dark else "#E2E0D8"
     accent = "#8B6F47"
-    tag_bg = "rgba(139, 111, 71, 0.08)" if is_dark else "rgba(139, 111, 71, 0.12)"
+    tag_bg = "rgba(139, 111, 71, 0.10)" if is_dark else "rgba(139, 111, 71, 0.12)"
 
     num = project.get("number", "01")
     name = project.get("name", "").upper()
     desc = project.get("description", "")
     techs = project.get("technologies", [])
+    p_id = project.get("id", "")
     
-    # Meta badge text
+    # Only show VIEW REPOSITORY link for verified public repos (CloudGuardian AI)
+    show_repo_link = (p_id == "cloudguardian" or (meta and meta.get("stars", 0) > 0))
+
     meta_str = ""
     if meta:
         stars = meta.get("stars", 0)
@@ -54,42 +56,46 @@ def create_card_svg(project, is_dark=True, meta=None):
     tech_pills = ""
     tx = 0
     for t in techs:
-        width = len(t) * 7.5 + 16
+        width = len(t) * 8.5 + 20
         tech_pills += f'''<g transform="translate({tx}, 0)">
-          <rect x="0" y="0" width="{width}" height="20" rx="4" fill="{tag_bg}" stroke="{line_color}" stroke-width="0.8" />
-          <text x="{width/2}" y="13.5" font-family="ui-monospace, SFMono-Regular, monospace" font-size="10" font-weight="600" fill="{accent}" text-anchor="middle">{t}</text>
+          <rect x="0" y="0" width="{width}" height="24" rx="5" fill="{tag_bg}" stroke="{line_color}" stroke-width="0.9" />
+          <text x="{width/2}" y="16" font-family="ui-monospace, SFMono-Regular, monospace" font-size="11" font-weight="600" fill="{accent}" text-anchor="middle">{t}</text>
         </g>'''
-        tx += width + 8
+        tx += width + 10
 
     meta_text_element = ""
     if meta_str:
-        meta_text_element = f'''<text x="825" y="32" font-family="ui-monospace, monospace" font-size="9" fill="{text_muted}" text-anchor="end">{meta_str}</text>'''
+        meta_text_element = f'''<text x="820" y="38" font-family="ui-monospace, monospace" font-size="11" fill="{text_muted}" text-anchor="end">{meta_str}</text>'''
 
-    svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 120" width="100%" height="100%">
+    link_element = ""
+    if show_repo_link:
+        link_element = f'''<text x="820" y="118" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="{accent}" text-anchor="end">VIEW REPOSITORY ↗</text>'''
+
+    svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 148" width="100%" height="100%">
   <title>{name} — Case Study Card</title>
 
   <!-- Background Card -->
-  <rect x="0" y="0" width="850" height="120" rx="8" fill="{bg}" stroke="{line_color}" stroke-width="1" />
-  <rect x="0" y="0" width="3" height="120" fill="{accent}" />
+  <rect x="0" y="0" width="850" height="148" rx="8" fill="{bg}" stroke="{line_color}" stroke-width="1" />
+  <rect x="0" y="0" width="3.5" height="148" fill="{accent}" />
 
   <!-- Oversized Index Number -->
-  <text x="24" y="44" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="24" font-weight="800" fill="{accent}" letter-spacing="1">{num}</text>
-  <line x1="58" y1="22" x2="58" y2="44" stroke="{line_color}" stroke-width="1" />
+  <text x="26" y="48" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="28" font-weight="800" fill="{accent}" letter-spacing="1">{num}</text>
+  <line x1="68" y1="24" x2="68" y2="48" stroke="{line_color}" stroke-width="1" />
 
   <!-- Title -->
-  <text x="70" y="38" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="800" fill="{text_primary}" letter-spacing="1">{name}</text>
+  <text x="82" y="42" font-family="system-ui, -apple-system, sans-serif" font-size="19" font-weight="800" fill="{text_primary}" letter-spacing="1">{name}</text>
   {meta_text_element}
 
   <!-- Description -->
-  <text x="24" y="68" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="400" fill="{text_muted}">{desc}</text>
+  <text x="26" y="78" font-family="system-ui, -apple-system, sans-serif" font-size="13.5" font-weight="400" fill="{text_muted}">{desc}</text>
 
   <!-- Tech Stack Pills -->
-  <g transform="translate(24, 84)">
+  <g transform="translate(26, 102)">
     {tech_pills}
   </g>
 
-  <!-- Arrow Link Indicator -->
-  <text x="825" y="98" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="{accent}" text-anchor="end">VIEW REPOSITORY ↗</text>
+  <!-- Arrow Link Indicator (Only if verified) -->
+  {link_element}
 </svg>'''
     return svg
 
@@ -113,7 +119,7 @@ def main():
             f.write(dark_svg)
         with open(f"assets/project-{p_id}-light.svg", "w", encoding="utf-8") as f:
             f.write(light_svg)
-        print(f"Generated assets/project-{p_id}-dark.svg and light SVG")
+        print(f"Generated assets/project-{p_id}-dark.svg and light SVG (enlarged GitHub scale)")
 
 if __name__ == "__main__":
     main()

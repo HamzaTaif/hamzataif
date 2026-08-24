@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Hamza Taif — GitHub Profile Preview</title>
+  <title>Hamza Taif — GitHub Profile Preview (GitHub Scale & Mobile Modes)</title>
   <style>
     :root {
       --dark-bg: #0D0C0A;
@@ -14,42 +14,82 @@
       margin: 0;
       padding: 40px 20px;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background-color: #12110E;
-      color: #F5F4F1;
+      background-color: #0d1117;
+      color: #c9d1d9;
     }
-    .container {
-      max-width: 960px;
-      margin: 0 auto;
+    .preview-header {
+      max-width: 1000px;
+      margin: 0 auto 30px auto;
+      border-bottom: 1px solid #30363d;
+      padding-bottom: 20px;
     }
     h1 {
-      font-size: 24px;
+      font-size: 22px;
       font-weight: 800;
       letter-spacing: 1px;
       color: #8B6F47;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
     p.subtitle {
       font-family: ui-monospace, monospace;
       font-size: 13px;
-      color: #A6A29A;
-      margin-top: 0;
-      margin-bottom: 36px;
+      color: #8b949e;
+      margin: 0;
     }
-    .section-title {
+    .view-mode-bar {
+      display: flex;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .btn {
+      padding: 8px 16px;
+      border-radius: 6px;
       font-family: ui-monospace, monospace;
-      font-size: 11px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      border: 1px solid #30363d;
+      background: #161b22;
+      color: #c9d1d9;
+      text-decoration: none;
+    }
+    .btn:hover {
+      border-color: #8B6F47;
+      color: #8B6F47;
+    }
+    
+    /* Container simulation sizes */
+    .github-desktop-container {
+      max-width: 880px;
+      margin: 0 auto 50px auto;
+      transition: max-width 0.3s ease;
+    }
+    .github-mobile-container {
+      max-width: 380px;
+      margin: 0 auto 50px auto;
+      border: 2px dashed #8B6F47;
+      padding: 10px;
+      border-radius: 8px;
+    }
+
+    .theme-toggle-title {
+      font-family: ui-monospace, monospace;
+      font-size: 12px;
       font-weight: 700;
       letter-spacing: 2px;
       color: #8B6F47;
-      margin-top: 40px;
-      margin-bottom: 12px;
+      margin-top: 36px;
+      margin-bottom: 14px;
       text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
     .card-preview {
-      border-radius: 12px;
-      padding: 24px;
+      border-radius: 10px;
+      padding: 20px;
       margin-bottom: 24px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
     }
     .dark-mode-preview {
       background-color: var(--dark-bg);
@@ -64,61 +104,55 @@
       height: auto;
       display: block;
     }
-    .portrait-standalone {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-    }
-    .portrait-standalone img {
-      max-width: 320px;
-    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>HAMZA TAIF — PROFILE ASSETS PREVIEW</h1>
-    <p class="subtitle">Local rendering suite with transparent stipple portrait integration</p>
+  <div class="preview-header">
+    <h1>HAMZA TAIF — REAL GITHUB SCALE PREVIEW SUITE</h1>
+    <p class="subtitle">Exact width simulation (Desktop: 880px max-width, Mobile: 380px max-width)</p>
+  </div>
 
-    <!-- 1. HERO DARK -->
-    <div class="section-title">01 / HERO DARK (WITH PORTRAIT INTEGRATION)</div>
-    <div class="card-preview dark-mode-preview">
-      <img src="assets/hero-dark.svg" alt="Hero Dark with Portrait">
+  <!-- DESKTOP GITHUB READABILITY CONTAINER (880px MAX-WIDTH) -->
+  <div class="github-desktop-container">
+    <div style="font-family: ui-monospace, monospace; font-size: 13px; color: #8B6F47; font-weight: 700; margin-bottom: 16px;">
+      [MODE 1] DESKTOP GITHUB README CONTAINER (880px WIDTH)
     </div>
 
-    <!-- 2. HERO LIGHT -->
-    <div class="section-title">02 / HERO LIGHT (WITH PORTRAIT INTEGRATION)</div>
+    <!-- HERO DARK & LIGHT -->
+    <div class="theme-toggle-title">01 / HERO DARK (HIGH-CONTRAST &amp; FINE STIPPLE PORTRAIT)</div>
+    <div class="card-preview dark-mode-preview">
+      <img src="assets/hero-dark.svg" alt="Hero Dark">
+    </div>
+
+    <div class="theme-toggle-title">02 / HERO LIGHT</div>
     <div class="card-preview light-mode-preview">
-      <img src="assets/hero-light.svg" alt="Hero Light with Portrait">
+      <img src="assets/hero-light.svg" alt="Hero Light">
     </div>
 
-    <!-- 3. PORTRAIT DARK STANDALONE -->
-    <div class="section-title">03 / STIPPLE PORTRAIT DARK (STANDALONE)</div>
-    <div class="card-preview dark-mode-preview portrait-standalone">
-      <img src="assets/portrait-dark.svg" alt="Portrait Dark Standalone">
-    </div>
-
-    <!-- 4. PORTRAIT LIGHT STANDALONE -->
-    <div class="section-title">04 / STIPPLE PORTRAIT LIGHT (STANDALONE)</div>
-    <div class="card-preview light-mode-preview portrait-standalone">
-      <img src="assets/portrait-light.svg" alt="Portrait Light Standalone">
-    </div>
-
-    <!-- 5. FEATURED PROJECT CARDS -->
-    <div class="section-title">05 / FEATURED PROJECT CARDS</div>
+    <!-- FEATURED PROJECTS -->
+    <div class="theme-toggle-title">03 / ENLARGED CASE STUDY PROJECT CARDS (DARK &amp; LIGHT)</div>
     <div class="card-preview dark-mode-preview">
-      <img src="assets/project-uet-connect-dark.svg" alt="UET Connect Dark" style="margin-bottom: 16px;">
-      <img src="assets/project-apex-discipline-dark.svg" alt="Apex Discipline Dark" style="margin-bottom: 16px;">
+      <img src="assets/project-uet-connect-dark.svg" alt="UET Connect Dark" style="margin-bottom: 18px;">
+      <img src="assets/project-apex-discipline-dark.svg" alt="Apex Discipline Dark" style="margin-bottom: 18px;">
       <img src="assets/project-cloudguardian-dark.svg" alt="CloudGuardian Dark">
     </div>
     <div class="card-preview light-mode-preview">
-      <img src="assets/project-uet-connect-light.svg" alt="UET Connect Light" style="margin-bottom: 16px;">
-      <img src="assets/project-apex-discipline-light.svg" alt="Apex Discipline Light" style="margin-bottom: 16px;">
+      <img src="assets/project-uet-connect-light.svg" alt="UET Connect Light" style="margin-bottom: 18px;">
+      <img src="assets/project-apex-discipline-light.svg" alt="Apex Discipline Light" style="margin-bottom: 18px;">
       <img src="assets/project-cloudguardian-light.svg" alt="CloudGuardian Light">
     </div>
 
-    <!-- 6. CODE COMPOSITION -->
-    <div class="section-title">06 / CODE COMPOSITION</div>
+    <!-- TOOLBOX -->
+    <div class="theme-toggle-title">04 / CUSTOM TOOLBOX STRIP</div>
+    <div class="card-preview dark-mode-preview">
+      <img src="assets/toolbox-dark.svg" alt="Toolbox Dark">
+    </div>
+    <div class="card-preview light-mode-preview">
+      <img src="assets/toolbox-light.svg" alt="Toolbox Light">
+    </div>
+
+    <!-- CODE COMPOSITION -->
+    <div class="theme-toggle-title">05 / ENLARGED CODE COMPOSITION</div>
     <div class="card-preview dark-mode-preview">
       <img src="assets/languages-dark.svg" alt="Languages Dark">
     </div>
@@ -126,8 +160,17 @@
       <img src="assets/languages-light.svg" alt="Languages Light">
     </div>
 
-    <!-- 7. GITHUB PULSE -->
-    <div class="section-title">07 / GITHUB PULSE</div>
+    <!-- JOURNEY TIMELINE -->
+    <div class="theme-toggle-title">06 / CUSTOM JOURNEY TIMELINE</div>
+    <div class="card-preview dark-mode-preview">
+      <img src="assets/journey-dark.svg" alt="Journey Dark">
+    </div>
+    <div class="card-preview light-mode-preview">
+      <img src="assets/journey-light.svg" alt="Journey Light">
+    </div>
+
+    <!-- REPOSITORY RHYTHM -->
+    <div class="theme-toggle-title">07 / REPOSITORY RHYTHM (ACTIVITY TIMELINE)</div>
     <div class="card-preview dark-mode-preview">
       <img src="assets/pulse-dark.svg" alt="Pulse Dark">
     </div>
@@ -135,13 +178,28 @@
       <img src="assets/pulse-light.svg" alt="Pulse Light">
     </div>
 
-    <!-- 8. SIGNATURE MARK -->
-    <div class="section-title">08 / SIGNATURE MARK</div>
+    <!-- SIGNATURE -->
+    <div class="theme-toggle-title">08 / PURE TYPOGRAPHIC SIGNATURE</div>
     <div class="card-preview dark-mode-preview" style="text-align: center;">
       <img src="assets/signature-dark.svg" alt="Signature Dark" style="display: inline-block;">
     </div>
     <div class="card-preview light-mode-preview" style="text-align: center;">
       <img src="assets/signature-light.svg" alt="Signature Light" style="display: inline-block;">
+    </div>
+  </div>
+
+  <!-- MOBILE GITHUB READABILITY CONTAINER (380px MAX-WIDTH) -->
+  <div class="github-mobile-container">
+    <div style="font-family: ui-monospace, monospace; font-size: 12px; color: #8B6F47; font-weight: 700; margin-bottom: 12px; text-anchor: middle;">
+      [MODE 2] MOBILE SIMULATION (380px WIDTH)
+    </div>
+    <div class="card-preview dark-mode-preview">
+      <img src="assets/hero-dark.svg" alt="Hero Dark Mobile" style="margin-bottom: 12px;">
+      <img src="assets/project-cloudguardian-dark.svg" alt="CloudGuardian Dark Mobile" style="margin-bottom: 12px;">
+      <img src="assets/toolbox-dark.svg" alt="Toolbox Dark Mobile" style="margin-bottom: 12px;">
+      <img src="assets/languages-dark.svg" alt="Languages Dark Mobile" style="margin-bottom: 12px;">
+      <img src="assets/journey-dark.svg" alt="Journey Dark Mobile" style="margin-bottom: 12px;">
+      <img src="assets/pulse-dark.svg" alt="Pulse Dark Mobile">
     </div>
   </div>
 </body>

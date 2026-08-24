@@ -16,8 +16,14 @@ def main():
     import cards
     cards.main()
 
+    import toolbox
+    toolbox.main()
+
     import languages
     languages.main()
+
+    import journey
+    journey.main()
 
     import pulse
     pulse.main()

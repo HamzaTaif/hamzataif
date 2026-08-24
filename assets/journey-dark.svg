@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 170" width="100%" height="100%">
+  <title>Engineering Journey — Hamza Taif</title>
+
+  <!-- Card Background -->
+  <rect x="0" y="0" width="850" height="170" rx="8" fill="#0D0C0A" stroke="#3A3935" stroke-width="1" />
+  <rect x="0" y="0" width="3.5" height="170" fill="#8B6F47" />
+
+  <!-- Vertical Timeline Connector -->
+  <line x1="190" y1="45" x2="190" y2="110" stroke="#3A3935" stroke-width="1" stroke-dasharray="3,3" />
+
+  <!-- Milestones -->
+  <g transform="translate(30, 32)">
+          <!-- Year Badge Anchor -->
+          <rect x="0" y="0" width="118" height="26" rx="5" fill="rgba(139, 111, 71, 0.12)" stroke="#3A3935" stroke-width="1" />
+          <text x="59" y="17" font-family="ui-monospace, SFMono-Regular, monospace" font-size="11" font-weight="700" fill="#8B6F47" text-anchor="middle">2026</text>
+
+          <!-- Timeline Structural Line -->
+          <line x1="128" y1="13" x2="160" y2="13" stroke="#8B6F47" stroke-width="1.5" />
+          <circle cx="160" cy="13" r="3.5" fill="#8B6F47" />
+
+          <!-- Content Block -->
+          <text x="175" y="17" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="800" fill="#F5F4F1" letter-spacing="0.5">KIRO HACKATHON <tspan font-weight="500" fill="#A6A29A">— Ship With Kiro</tspan></text>
+          <text x="175" y="38" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="400" fill="#A6A29A">Built CloudGuardian AI: an LLM-powered cloud monitoring tool with TypeScript &amp; FastAPI.</text>
+        </g>
+<g transform="translate(30, 96)">
+          <!-- Year Badge Anchor -->
+          <rect x="0" y="0" width="118" height="26" rx="5" fill="rgba(139, 111, 71, 0.12)" stroke="#3A3935" stroke-width="1" />
+          <text x="59" y="17" font-family="ui-monospace, SFMono-Regular, monospace" font-size="11" font-weight="700" fill="#8B6F47" text-anchor="middle">2023 – PRESENT</text>
+
+          <!-- Timeline Structural Line -->
+          <line x1="128" y1="13" x2="160" y2="13" stroke="#8B6F47" stroke-width="1.5" />
+          <circle cx="160" cy="13" r="3.5" fill="#8B6F47" />
+
+          <!-- Content Block -->
+          <text x="175" y="17" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="800" fill="#F5F4F1" letter-spacing="0.5">SOFTWARE ENGINEERING <tspan font-weight="500" fill="#A6A29A">— UET Peshawar</tspan></text>
+          <text x="175" y="38" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="400" fill="#A6A29A">Studying systems programming, data structures, algorithms, and full-stack app development.</text>
+        </g>
+
+</svg>
