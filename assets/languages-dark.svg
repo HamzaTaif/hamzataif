@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 180" width="100%" height="100%">
+  <title>Repository Language Composition — Hamza Taif</title>
+
+  <!-- Card Background -->
+  <rect x="0" y="0" width="850" height="180" rx="8" fill="#0D0C0A" stroke="#3A3935" stroke-width="1" />
+  <rect x="0" y="0" width="3" height="180" fill="#8B6F47" />
+
+  <!-- Header Callout -->
+  <text x="25" y="36" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="10" font-weight="700" fill="#8B6F47" letter-spacing="2">REPOSITORY CODE COMPOSITION</text>
+  <text x="825" y="36" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="9" fill="#A6A29A" text-anchor="end">DERIVED FROM PUBLIC REPOSITORIES</text>
+  <line x1="25" y1="46" x2="825" y2="46" stroke="#3A3935" stroke-width="1" />
+
+  <!-- Horizontal Code Distribution Bar -->
+  <rect x="25" y="65" width="266.66666666666663" height="12" fill="#8B6F47" rx="2" />
+<rect x="291.66666666666663" y="65" width="133.33333333333331" height="12" fill="#F5F4F1" rx="2" />
+<rect x="424.99999999999994" y="65" width="133.33333333333331" height="12" fill="#A6A29A" rx="2" />
+<rect x="558.3333333333333" y="65" width="133.33333333333331" height="12" fill="#6E6A63" rx="2" />
+<rect x="691.6666666666665" y="65" width="133.33333333333331" height="12" fill="#3A3935" rx="2" />
+
+
+  <!-- Language Grid -->
+  <g transform="translate(25, 105)">
+          <circle cx="6" cy="6" r="4" fill="#8B6F47" />
+          <text x="18" y="10" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#F5F4F1">JavaScript</text>
+          <text x="140" y="10" font-family="ui-monospace, SFMono-Regular, monospace" font-size="11" fill="#A6A29A">33.3%</text>
+        </g>
+<g transform="translate(295, 105)">
+          <circle cx="6" cy="6" r="4" fill="#F5F4F1" />
+          <text x="18" y="10" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#F5F4F1">TypeScript</text>
+          <text x="140" y="10" font-family="ui-monospace, SFMono-Regular, monospace" font-size="11" fill="#A6A29A">16.7%</text>
+        </g>
+<g transform="translate(565, 105)">
+          <circle cx="6" cy="6" r="4" fill="#A6A29A" />
+          <text x="18" y="10" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#F5F4F1">Shell</text>
+          <text x="140" y="10" font-family="ui-monospace, SFMono-Regular, monospace" font-size="11" fill="#A6A29A">16.7%</text>
+        </g>
+<g transform="translate(25, 137)">
+          <circle cx="6" cy="6" r="4" fill="#6E6A63" />
+          <text x="18" y="10" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#F5F4F1">CSS</text>
+          <text x="140" y="10" font-family="ui-monospace, SFMono-Regular, monospace" font-size="11" fill="#A6A29A">16.7%</text>
+        </g>
+<g transform="translate(295, 137)">
+          <circle cx="6" cy="6" r="4" fill="#3A3935" />
+          <text x="18" y="10" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#F5F4F1">Python</text>
+          <text x="140" y="10" font-family="ui-monospace, SFMono-Regular, monospace" font-size="11" fill="#A6A29A">16.7%</text>
+        </g>
+
+</svg>

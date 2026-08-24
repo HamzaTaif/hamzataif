@@ -1,0 +1,32 @@
+{
+  "username": "HamzaTaif",
+  "projects": [
+    {
+      "id": "uet-connect",
+      "number": "01",
+      "name": "UET CONNECT",
+      "repo": "uet-connect",
+      "description": "Campus software platform for student communication and real-time community features.",
+      "technologies": ["Flutter", "Dart", "Firebase"],
+      "fallback_url": "https://github.com/HamzaTaif"
+    },
+    {
+      "id": "apex-discipline",
+      "number": "02",
+      "name": "APEX DISCIPLINE",
+      "repo": "apex-discipline",
+      "description": "Mobile app for personal discipline and habit tracking with custom UI design.",
+      "technologies": ["Flutter", "Dart", "Product Design"],
+      "fallback_url": "https://github.com/HamzaTaif"
+    },
+    {
+      "id": "cloudguardian",
+      "number": "03",
+      "name": "CLOUDGUARDIAN AI",
+      "repo": "CloudGuardian-Ai",
+      "description": "AI-powered cloud monitoring tool built with FastAPI backend and LLM workflows for Kiro Hackathon.",
+      "technologies": ["TypeScript", "FastAPI", "AI / LLM"],
+      "fallback_url": "https://github.com/HamzaTaif/CloudGuardian-Ai"
+    }
+  ]
+}
