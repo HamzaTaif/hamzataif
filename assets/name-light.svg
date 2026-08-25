@@ -1,17 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 50" width="100%" height="100%">
-  <title>Hamza Taif — Designed Static Typography Name</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 90" width="100%" height="100%">
+  <title>Hamza Taif — Typography Display Name</title>
   <style>
-    .name-title {
+    .name-text {
       font-family: ui-monospace, SFMono-Regular, "Roboto Mono", Menlo, Consolas, "Liberation Mono", monospace;
-      font-size: 32px;
+      font-size: 42px;
       font-weight: 900;
-      letter-spacing: 5px;
+      letter-spacing: 6px;
       text-anchor: middle;
     }
   </style>
 
-  <g transform="translate(300, 36)">
-    <text class="name-title">
+  <g transform="translate(350, 58)">
+    <text class="name-text">
       <tspan fill="#1A1917">HAMZA </tspan><tspan fill="#8B6F47">TAIF</tspan>
     </text>
   </g>

@@ -12,11 +12,11 @@
   <!-- Grid Items -->
   <g transform="translate(40, 65)">
           <text x="0" y="16" font-family="ui-monospace, SFMono-Regular, monospace" font-size="10" font-weight="700" fill="#8B6F47" letter-spacing="1">PUBLIC REPOSITORIES</text>
-          <text x="0" y="46" font-family="system-ui, sans-serif" font-size="20" font-weight="800" fill="#1A1917">11</text>
+          <text x="0" y="46" font-family="system-ui, sans-serif" font-size="20" font-weight="800" fill="#1A1917">8</text>
         </g>
 <g transform="translate(245, 65)">
           <text x="0" y="16" font-family="ui-monospace, SFMono-Regular, monospace" font-size="10" font-weight="700" fill="#8B6F47" letter-spacing="1">GITHUB FOLLOWERS</text>
-          <text x="0" y="46" font-family="system-ui, sans-serif" font-size="20" font-weight="800" fill="#1A1917">2</text>
+          <text x="0" y="46" font-family="system-ui, sans-serif" font-size="20" font-weight="800" fill="#1A1917">12</text>
         </g>
 <g transform="translate(450, 65)">
           <text x="0" y="16" font-family="ui-monospace, SFMono-Regular, monospace" font-size="10" font-weight="700" fill="#8B6F47" letter-spacing="1">PRIMARY STACK</text>

@@ -2,7 +2,7 @@
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/portrait-dark.svg">
     <source media="(prefers-color-scheme: light)" srcset="assets/portrait-light.svg">
-    <img src="assets/portrait-dark.svg" alt="Hamza Taif Realistic Photo Portrait" width="400" />
+    <img src="assets/portrait-dark.svg" alt="Hamza Taif Realistic Photo Portrait" width="350" />
   </picture>
 </div>
 
@@ -12,7 +12,7 @@
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/name-dark.svg">
     <source media="(prefers-color-scheme: light)" srcset="assets/name-light.svg">
-    <img src="assets/name-dark.svg" alt="HAMZA TAIF" width="420" />
+    <img src="assets/name-dark.svg" alt="Hamza Taif" width="420" />
   </picture>
 </div>
 
@@ -58,6 +58,7 @@
   </picture>
 </div>
 
+<!--
 <br />
 <br />
 
@@ -66,9 +67,11 @@
 <br />
 
 <div align="center">
-  <img src="github-metrics.svg" alt="3D Isometric Contribution Calendar (Generated via GitHub Actions metrics.yml)" width="100%" />
+  <img src="./metrics.plugin.isocalendar.svg" alt="Hamza Taif GitHub isometric contribution calendar" width="100%" />
 </div>
+-->
 
+<!--
 <br />
 <br />
 
@@ -80,9 +83,10 @@
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/HamzaTaif/hamzataif/output/github-contribution-grid-snake-dark.svg">
     <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/HamzaTaif/hamzataif/output/github-contribution-grid-snake.svg">
-    <img src="https://raw.githubusercontent.com/HamzaTaif/hamzataif/output/github-contribution-grid-snake-dark.svg" alt="Contribution Grid Snake Animation" width="100%" />
+    <img src="https://raw.githubusercontent.com/HamzaTaif/hamzataif/output/github-contribution-grid-snake-dark.svg" alt="Hamza Taif contribution snake" width="100%" />
   </picture>
 </div>
+-->
 
 <br />
 <br />
