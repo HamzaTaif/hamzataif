@@ -12,12 +12,10 @@ def create_snake_svg(is_dark=True):
     accent = "#D4A359" if is_dark else "#8B6F47"
 
     grid_xml = ""
-    # 52 weeks x 7 days grid representation
     for w in range(52):
         for d in range(7):
             cx = 30 + w * 15
             cy = 50 + d * 15
-            # Deterministic activity simulation pattern
             val = ((w * 3 + d * 7) % 11)
             if val < 5:
                 color = cell_empty
@@ -32,7 +30,6 @@ def create_snake_svg(is_dark=True):
 
             grid_xml += f'<rect x="{cx}" y="{cy}" width="11" height="11" rx="2" fill="{color}" />\n'
 
-    # Animated snake path over contribution cells
     snake_nodes = [
         (30 + 42 * 15 + 5, 50 + 2 * 15 + 5),
         (30 + 43 * 15 + 5, 50 + 2 * 15 + 5),
@@ -50,29 +47,24 @@ def create_snake_svg(is_dark=True):
     svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 175" width="100%" height="100%">
   <title>GitHub Contribution Grid Snake — Hamza Taif</title>
 
-  <!-- Card Background -->
   <rect x="0" y="0" width="850" height="175" rx="8" fill="{bg}" stroke="{line_color}" stroke-width="1" />
   <rect x="0" y="0" width="3.5" height="175" fill="{accent}" />
 
-  <!-- Header -->
   <text x="30" y="32" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" font-weight="700" fill="{accent}" letter-spacing="2">CONTRIBUTION SNAKE // AUTOMATED GITHUB ACTIVITY GRAPH</text>
   <line x1="30" y1="40" x2="820" y2="40" stroke="{line_color}" stroke-width="1" />
 
-  <!-- Contribution Cells -->
   {grid_xml}
-
-  <!-- Animated Contribution Snake -->
   {snake_body_xml}
 </svg>'''
     return svg
 
 def main():
     os.makedirs("assets", exist_ok=True)
-    with open("assets/github-contribution-grid-snake-dark.svg", "w", encoding="utf-8") as f:
+    with open("assets/snake-dark.svg", "w", encoding="utf-8") as f:
         f.write(create_snake_svg(is_dark=True))
-    with open("assets/github-contribution-grid-snake.svg", "w", encoding="utf-8") as f:
+    with open("assets/snake-light.svg", "w", encoding="utf-8") as f:
         f.write(create_snake_svg(is_dark=False))
-    print("Generated initial assets/github-contribution-grid-snake-dark.svg and light SVG")
+    print("Generated assets/snake-dark.svg and assets/snake-light.svg")
 
 if __name__ == "__main__":
     main()
