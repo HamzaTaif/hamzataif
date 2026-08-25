@@ -2,7 +2,7 @@
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/portrait-dark.svg">
     <source media="(prefers-color-scheme: light)" srcset="assets/portrait-light.svg">
-    <img src="assets/portrait-dark.svg" alt="Hamza Taif Realistic Photo Portrait" width="350" />
+    <img src="assets/portrait-dark.svg" alt="Hamza Taif Realistic Photo Portrait" width="315" />
   </picture>
 </div>
 
@@ -12,16 +12,16 @@
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/name-dark.svg">
     <source media="(prefers-color-scheme: light)" srcset="assets/name-light.svg">
-    <img src="assets/name-dark.svg" alt="Hamza Taif" width="420" />
+    <img src="assets/name-dark.svg" alt="HAMZA TAIF" width="440" />
   </picture>
 </div>
 
 <div align="center">
-  <a href="https://hamzataif.me"><img src="https://img.shields.io/badge/PORTFOLIO-12110E?style=for-the-badge&logo=googlechrome&logoColor=D4A359" height="38" alt="Portfolio"></a>
+  <a href="https://linkedin.com/in/hamzataif"><img src="https://img.shields.io/badge/LINKEDIN-0A66C2?style=for-the-badge&logo=linkedin&logoColor=FFFFFF" height="38" alt="LinkedIn"></a>
+  <a href="mailto:contact@hamzataif.me"><img src="https://img.shields.io/badge/EMAIL-EA4335?style=for-the-badge&logo=gmail&logoColor=FFFFFF" height="38" alt="Email"></a>
+  <a href="https://hamzataif.me"><img src="https://img.shields.io/badge/PORTFOLIO-D4A359?style=for-the-badge&logo=googlechrome&logoColor=12110E" height="38" alt="Portfolio"></a>
   <a href="https://github.com/HamzaTaif"><img src="https://img.shields.io/badge/GITHUB-12110E?style=for-the-badge&logo=github&logoColor=F5F4F1" height="38" alt="GitHub"></a>
   <a href="https://x.com/Hamza_Taif_Khan"><img src="https://img.shields.io/badge/TWITTER/X-000000?style=for-the-badge&logo=x&logoColor=F5F4F1" height="38" alt="Twitter"></a>
-  <a href="mailto:contact@hamzataif.me"><img src="https://img.shields.io/badge/EMAIL-12110E?style=for-the-badge&logo=gmail&logoColor=EA4335" height="38" alt="Email"></a>
-  <a href="https://linkedin.com/in/hamzataif"><img src="https://img.shields.io/badge/LINKEDIN-12110E?style=for-the-badge&logo=linkedin&logoColor=0A66C2" height="38" alt="LinkedIn"></a>
 </div>
 
 <br />
@@ -58,7 +58,6 @@
   </picture>
 </div>
 
-<!--
 <br />
 <br />
 
@@ -67,11 +66,9 @@
 <br />
 
 <div align="center">
-  <img src="./metrics.plugin.isocalendar.svg" alt="Hamza Taif GitHub isometric contribution calendar" width="100%" />
+  <img src="metrics.plugin.isocalendar.svg" alt="Hamza Taif GitHub isometric contribution calendar" width="100%" />
 </div>
--->
 
-<!--
 <br />
 <br />
 
@@ -86,7 +83,6 @@
     <img src="https://raw.githubusercontent.com/HamzaTaif/hamzataif/output/github-contribution-grid-snake-dark.svg" alt="Hamza Taif contribution snake" width="100%" />
   </picture>
 </div>
--->
 
 <br />
 <br />
