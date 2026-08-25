@@ -2,14 +2,14 @@ import os
 
 def create_snake_svg(is_dark=True):
     bg = "#0D0C0A" if is_dark else "#FAF9F6"
-    cell_empty = "#1F1E1B" if is_dark else "#EBEDF0"
-    cell_l1 = "#523F27"
-    cell_l2 = "#8B6F47"
-    cell_l3 = "#D4A359"
-    cell_l4 = "#F5F4F1"
-    snake_head = "#E5B869"
+    cell_empty = "#161B22" if is_dark else "#EBEDF0"
+    cell_l1 = "#0E4429"
+    cell_l2 = "#006D32"
+    cell_l3 = "#26A641"
+    cell_l4 = "#39D353"
+    snake_head = "#39D353"
     line_color = "#3A3935" if is_dark else "#E2E0D8"
-    accent = "#D4A359" if is_dark else "#8B6F47"
+    accent = "#26A641"
 
     grid_xml = ""
     for w in range(52):
@@ -64,7 +64,7 @@ def main():
         f.write(create_snake_svg(is_dark=True))
     with open("assets/snake-light.svg", "w", encoding="utf-8") as f:
         f.write(create_snake_svg(is_dark=False))
-    print("Generated assets/snake-dark.svg and assets/snake-light.svg")
+    print("Generated assets/snake-dark.svg and assets/snake-light.svg (GitHub Native Greens)")
 
 if __name__ == "__main__":
     main()

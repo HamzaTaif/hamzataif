@@ -59,7 +59,7 @@ def create_metrics_svg(is_dark=True):
     bg = "#0D0C0A" if is_dark else "#FAF9F6"
     text_primary = "#F5F4F1" if is_dark else "#1A1917"
     line_color = "#3A3935" if is_dark else "#E2E0D8"
-    accent = "#D4A359" if is_dark else "#8B6F47"
+    accent = "#30A14E" if is_dark else "#216E39" # GitHub Native Green Accent
 
     daily_counts, total_events = fetch_user_events("HamzaTaif")
     start_date = datetime.now() - timedelta(days=52*7)
@@ -89,6 +89,7 @@ def create_metrics_svg(is_dark=True):
             else:
                 streak_acc = 0
 
+            # GitHub Native Green Contribution Heights & Facet Shading
             if c == 0:
                 h = 2
                 c_top = "#1F1E1B" if is_dark else "#E5E3DC"
@@ -96,24 +97,24 @@ def create_metrics_svg(is_dark=True):
                 c_right = "#141312" if is_dark else "#CCCCCC"
             elif c <= 2:
                 h = 8
-                c_top = "#6E5536"
-                c_left = "#523F27"
-                c_right = "#40311E"
+                c_top = "#0E4429"
+                c_left = "#0A331F"
+                c_right = "#072416"
             elif c <= 5:
-                h = 15
-                c_top = "#8B6F47"
-                c_left = "#6E5738"
-                c_right = "#54432B"
+                h = 16
+                c_top = "#006D32"
+                c_left = "#005226"
+                c_right = "#003A1B"
             elif c <= 8:
-                h = 22
-                c_top = "#D4A359"
-                c_left = "#A88144"
-                c_right = "#806233"
+                h = 24
+                c_top = "#26A641"
+                c_left = "#1C7D31"
+                c_right = "#145923"
             else:
-                h = 30
-                c_top = "#F5F4F1"
-                c_left = "#D4A359"
-                c_right = "#B88E49"
+                h = 32
+                c_top = "#39D353"
+                c_left = "#2BA340"
+                c_right = "#20782F"
 
             px = origin_x + (week - day) * 9
             py = origin_y + (week + day) * 4.5
@@ -136,7 +137,7 @@ def create_metrics_svg(is_dark=True):
     </g>'''
 
     svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 340" width="100%" height="100%">
-  <title>3D Isometric Contribution Calendar — Hamza Taif</title>
+  <title>3D Isometric Contribution Calendar — GitHub Native Colors</title>
   <rect x="0" y="0" width="880" height="340" rx="8" fill="{bg}" stroke="{line_color}" stroke-width="1" />
   <rect x="0" y="0" width="3.5" height="340" fill="{accent}" />
 
@@ -155,7 +156,7 @@ def main():
         f.write(create_metrics_svg(is_dark=True))
     with open("assets/github-metrics-light.svg", "w", encoding="utf-8") as f:
         f.write(create_metrics_svg(is_dark=False))
-    print("Generated assets/github-metrics-dark.svg and assets/github-metrics-light.svg")
+    print("Generated assets/github-metrics-dark.svg and assets/github-metrics-light.svg (GitHub Native Greens)")
 
 if __name__ == "__main__":
     main()

@@ -2,22 +2,22 @@
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/portrait-dark.svg">
     <source media="(prefers-color-scheme: light)" srcset="assets/portrait-light.svg">
-    <img src="assets/portrait-dark.svg" alt="Hamza Taif Stipple Portrait" width="380" />
+    <img src="assets/portrait-dark.svg" alt="Hamza Taif Realistic Photo Portrait" width="460" />
   </picture>
 </div>
 
 <br />
 
-<h1 align="center"><span style="color: #D4A359;">HAMZA TAIF</span></h1>
+<h1 align="center"><span style="color: #D4A359; font-size: 34px; font-weight: 900; letter-spacing: 2.5px;">HAMZA TAIF</span></h1>
 
 <br />
 
 <div align="center">
-  <a href="https://hamzataif.me"><img src="https://img.shields.io/badge/PORTFOLIO-12110E?style=for-the-badge&logo=googlechrome&logoColor=D4A359" alt="Portfolio"></a>
-  <a href="https://github.com/HamzaTaif"><img src="https://img.shields.io/badge/GITHUB-12110E?style=for-the-badge&logo=github&logoColor=F5F4F1" alt="GitHub"></a>
-  <a href="https://x.com/Hamza_Taif_Khan"><img src="https://img.shields.io/badge/TWITTER/X-12110E?style=for-the-badge&logo=x&logoColor=F5F4F1" alt="Twitter"></a>
-  <a href="mailto:contact@hamzataif.me"><img src="https://img.shields.io/badge/EMAIL-12110E?style=for-the-badge&logo=gmail&logoColor=EA4335" alt="Email"></a>
-  <a href="https://linkedin.com/in/hamzataif"><img src="https://img.shields.io/badge/LINKEDIN-12110E?style=for-the-badge&logo=linkedin&logoColor=0A66C2" alt="LinkedIn"></a>
+  <a href="https://hamzataif.me"><img src="https://img.shields.io/badge/PORTFOLIO-12110E?style=for-the-badge&logo=googlechrome&logoColor=D4A359" height="38" alt="Portfolio"></a>
+  <a href="https://github.com/HamzaTaif"><img src="https://img.shields.io/badge/GITHUB-12110E?style=for-the-badge&logo=github&logoColor=F5F4F1" height="38" alt="GitHub"></a>
+  <a href="https://x.com/Hamza_Taif_Khan"><img src="https://img.shields.io/badge/TWITTER/X-000000?style=for-the-badge&logo=x&logoColor=F5F4F1" height="38" alt="Twitter"></a>
+  <a href="mailto:contact@hamzataif.me"><img src="https://img.shields.io/badge/EMAIL-12110E?style=for-the-badge&logo=gmail&logoColor=EA4335" height="38" alt="Email"></a>
+  <a href="https://linkedin.com/in/hamzataif"><img src="https://img.shields.io/badge/LINKEDIN-12110E?style=for-the-badge&logo=linkedin&logoColor=0A66C2" height="38" alt="LinkedIn"></a>
 </div>
 
 <br />
@@ -57,7 +57,7 @@
 <br />
 <br />
 
-### <span style="color: #D4A359;">02 /</span> 3D CONTRIBUTION CALENDAR
+### <span style="color: #26A641;">02 /</span> 3D CONTRIBUTION CALENDAR
 
 <br />
 
@@ -72,7 +72,7 @@
 <br />
 <br />
 
-### <span style="color: #D4A359;">03 /</span> CONTRIBUTION SNAKE
+### <span style="color: #26A641;">03 /</span> CONTRIBUTION SNAKE
 
 <br />
 
