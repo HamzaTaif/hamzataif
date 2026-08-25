@@ -105,8 +105,8 @@ def create_radars_svg(is_dark=True):
   <rect x="0" y="0" width="3.5" height="350" fill="{accent}" />
 
   <!-- Headers -->
-  <text x="40" y="38" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" font-weight="700" fill="{accent}" letter-spacing="2">01 // ENGINEERING FOCUS</text>
-  <text x="480" y="38" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" font-weight="700" fill="{accent}" letter-spacing="2">02 // LANGUAGE MIX (REAL DATA)</text>
+  <text x="40" y="38" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" font-weight="700" fill="{accent}" letter-spacing="2">ENGINEERING FOCUS</text>
+  <text x="480" y="38" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" font-weight="700" fill="{accent}" letter-spacing="2">LANGUAGE MIX</text>
   <line x1="30" y1="48" x2="850" y2="48" stroke="{line_color}" stroke-width="1" />
   <line x1="440" y1="48" x2="440" y2="330" stroke="{line_color}" stroke-width="1" stroke-dasharray="3,3" />
 

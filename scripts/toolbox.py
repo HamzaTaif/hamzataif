@@ -56,7 +56,7 @@ def create_toolbox_svg(is_dark=True):
   <rect x="0" y="0" width="3.5" height="{svg_h}" fill="{accent}" />
 
   <!-- Header -->
-  <text x="30" y="38" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" font-weight="700" fill="{accent}" letter-spacing="2">~/ TOOLBOX // CORE TECHNOLOGIES &amp; TOOLS</text>
+  <text x="30" y="38" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" font-weight="700" fill="{accent}" letter-spacing="2">TOOLBOX // CORE TECHNOLOGIES &amp; TOOLS</text>
   <line x1="30" y1="48" x2="820" y2="48" stroke="{line_color}" stroke-width="1" />
 
   <!-- Technologies Grid -->

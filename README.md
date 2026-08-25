@@ -17,8 +17,8 @@
 </div>
 
 <div align="center">
-  <a href="https://linkedin.com/in/hamzataif"><img src="https://img.shields.io/badge/LINKEDIN-0A66C2?style=for-the-badge&logo=linkedin&logoColor=FFFFFF" height="38" alt="LinkedIn"></a>
-  <a href="mailto:contact@hamzataif.me"><img src="https://img.shields.io/badge/EMAIL-EA4335?style=for-the-badge&logo=gmail&logoColor=FFFFFF" height="38" alt="Email"></a>
+  <a href="https://www.linkedin.com/in/hamza-taif-626853341/"><img src="https://img.shields.io/badge/LINKEDIN-0A66C2?style=for-the-badge&logo=linkedin&logoColor=FFFFFF" height="38" alt="LinkedIn"></a>
+  <a href="mailto:itshamzakhan51@gmail.com"><img src="https://img.shields.io/badge/EMAIL-EA4335?style=for-the-badge&logo=gmail&logoColor=FFFFFF" height="38" alt="Email"></a>
   <a href="https://hamzataif.me"><img src="https://img.shields.io/badge/PORTFOLIO-D4A359?style=for-the-badge&logo=googlechrome&logoColor=12110E" height="38" alt="Portfolio"></a>
   <a href="https://github.com/HamzaTaif"><img src="https://img.shields.io/badge/GITHUB-12110E?style=for-the-badge&logo=github&logoColor=F5F4F1" height="38" alt="GitHub"></a>
   <a href="https://x.com/Hamza_Taif_Khan"><img src="https://img.shields.io/badge/TWITTER/X-000000?style=for-the-badge&logo=x&logoColor=F5F4F1" height="38" alt="Twitter"></a>
@@ -31,7 +31,7 @@
 <br />
 <br />
 
-### <span style="color: #D4A359;">~/</span> TOOLBOX
+### <span style="color: #D4A359;">TOOLBOX</span>
 
 <br />
 
@@ -46,7 +46,7 @@
 <br />
 <br />
 
-### <span style="color: #D4A359;">01 /</span> SKILL &amp; LANGUAGE RADARS
+### <span style="color: #D4A359;">SKILL &amp; LANGUAGE RADARS</span>
 
 <br />
 
@@ -61,7 +61,7 @@
 <br />
 <br />
 
-### <span style="color: #26A641;">02 /</span> 3D CONTRIBUTION CALENDAR
+### <span style="color: #26A641;">3D CONTRIBUTION CALENDAR</span>
 
 <br />
 
@@ -72,7 +72,7 @@
 <br />
 <br />
 
-### <span style="color: #26A641;">03 /</span> CONTRIBUTION SNAKE
+### <span style="color: #26A641;">CONTRIBUTION SNAKE</span>
 
 <br />
 
@@ -87,7 +87,7 @@
 <br />
 <br />
 
-### <span style="color: #D4A359;">04 /</span> GITHUB STATS
+### <span style="color: #D4A359;">GITHUB STATS</span>
 
 <br />
 
@@ -102,7 +102,7 @@
 <br />
 <br />
 
-### <span style="color: #D4A359;">05 /</span> SELECTED WORK
+### <span style="color: #D4A359;">SELECTED WORK</span>
 
 <br />
 
@@ -110,7 +110,7 @@
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/project-uet-connect-dark.svg">
     <source media="(prefers-color-scheme: light)" srcset="assets/project-uet-connect-light.svg">
-    <img src="assets/project-uet-connect-dark.svg" alt="01 UET Connect Case Study Card" width="100%" />
+    <img src="assets/project-uet-connect-dark.svg" alt="UET Connect Case Study Card" width="100%" />
   </picture>
 </div>
 
@@ -120,7 +120,7 @@
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/project-apex-discipline-dark.svg">
     <source media="(prefers-color-scheme: light)" srcset="assets/project-apex-discipline-light.svg">
-    <img src="assets/project-apex-discipline-dark.svg" alt="02 Apex Discipline Case Study Card" width="100%" />
+    <img src="assets/project-apex-discipline-dark.svg" alt="Apex Discipline Case Study Card" width="100%" />
   </picture>
 </div>
 
@@ -130,14 +130,14 @@
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/project-cloudguardian-dark.svg">
     <source media="(prefers-color-scheme: light)" srcset="assets/project-cloudguardian-light.svg">
-    <img src="assets/project-cloudguardian-dark.svg" alt="03 CloudGuardian AI Case Study Card" width="100%" />
+    <img src="assets/project-cloudguardian-dark.svg" alt="CloudGuardian AI Case Study Card" width="100%" />
   </picture>
 </div>
 
 <br />
 <br />
 
-### <span style="color: #D4A359;">06 /</span> JOURNEY
+### <span style="color: #D4A359;">JOURNEY</span>
 
 <br />
 
@@ -152,7 +152,7 @@
 <br />
 <br />
 
-### <span style="color: #D4A359;">07 /</span> CONNECT
+### <span style="color: #D4A359;">CONNECT</span>
 
 * [hamzataif.me](https://hamzataif.me) &nbsp;—&nbsp; Portfolio ↗
 * [github.com/HamzaTaif](https://github.com/HamzaTaif) &nbsp;—&nbsp; GitHub ↗

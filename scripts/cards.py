@@ -78,12 +78,8 @@ def create_card_svg(project, is_dark=True, meta=None):
   <rect x="0" y="0" width="850" height="148" rx="8" fill="{bg}" stroke="{line_color}" stroke-width="1" />
   <rect x="0" y="0" width="3.5" height="148" fill="{accent}" />
 
-  <!-- Oversized Index Number -->
-  <text x="26" y="48" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="28" font-weight="800" fill="{accent}" letter-spacing="1">{num}</text>
-  <line x1="68" y1="24" x2="68" y2="48" stroke="{line_color}" stroke-width="1" />
-
   <!-- Title -->
-  <text x="82" y="42" font-family="system-ui, -apple-system, sans-serif" font-size="19" font-weight="800" fill="{text_primary}" letter-spacing="1">{name}</text>
+  <text x="26" y="42" font-family="system-ui, -apple-system, sans-serif" font-size="19" font-weight="800" fill="{text_primary}" letter-spacing="1">{name}</text>
   {meta_text_element}
 
   <!-- Description -->
