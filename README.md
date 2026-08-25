@@ -2,15 +2,19 @@
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/portrait-dark.svg">
     <source media="(prefers-color-scheme: light)" srcset="assets/portrait-light.svg">
-    <img src="assets/portrait-dark.svg" alt="Hamza Taif Realistic Photo Portrait" width="460" />
+    <img src="assets/portrait-dark.svg" alt="Hamza Taif Realistic Photo Portrait" width="400" />
   </picture>
 </div>
 
 <br />
 
-<h1 align="center"><span style="color: #D4A359; font-size: 34px; font-weight: 900; letter-spacing: 2.5px;">HAMZA TAIF</span></h1>
-
-<br />
+<div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/name-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="assets/name-light.svg">
+    <img src="assets/name-dark.svg" alt="HAMZA TAIF" width="420" />
+  </picture>
+</div>
 
 <div align="center">
   <a href="https://hamzataif.me"><img src="https://img.shields.io/badge/PORTFOLIO-12110E?style=for-the-badge&logo=googlechrome&logoColor=D4A359" height="38" alt="Portfolio"></a>
@@ -62,11 +66,7 @@
 <br />
 
 <div align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/github-metrics-dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset="assets/github-metrics-light.svg">
-    <img src="assets/github-metrics-dark.svg" alt="3D Isometric Contribution Calendar" width="100%" />
-  </picture>
+  <img src="github-metrics.svg" alt="3D Isometric Contribution Calendar (Generated via GitHub Actions metrics.yml)" width="100%" />
 </div>
 
 <br />
@@ -78,9 +78,9 @@
 
 <div align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/snake-dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset="assets/snake-light.svg">
-    <img src="assets/snake-dark.svg" alt="Contribution Grid Snake Animation" width="100%" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/HamzaTaif/hamzataif/output/github-contribution-grid-snake-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/HamzaTaif/hamzataif/output/github-contribution-grid-snake.svg">
+    <img src="https://raw.githubusercontent.com/HamzaTaif/hamzataif/output/github-contribution-grid-snake-dark.svg" alt="Contribution Grid Snake Animation" width="100%" />
   </picture>
 </div>
 

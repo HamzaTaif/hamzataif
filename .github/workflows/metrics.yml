@@ -22,13 +22,17 @@ jobs:
           template: classic
           base: header, activity, community, repositories
           config_timezone: Asia/Karachi
+          
+          # Isometric 3D Calendar Plugin
           plugin_isometric: yes
           plugin_isometric_order: date
-          filename: assets/github-metrics-dark.svg
+          
+          # Output SVG directly to repository root
+          filename: github-metrics.svg
 
       - name: Commit and Push Updated Metrics SVG
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add assets/
+          git add github-metrics.svg
           git diff --quiet && git diff --staged --quiet || (git commit -m "auto: update 3D contribution metrics SVG" && git push)

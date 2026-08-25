@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Hamza Taif — Realistic Profile Preview</title>
+  <title>Hamza Taif — Final Profile Structure Preview</title>
   <style>
     :root {
       --dark-bg: #0D0C0A;
@@ -47,17 +47,6 @@
       box-shadow: 0 8px 32px rgba(0,0,0,0.5);
     }
 
-    .user-name-title {
-      text-align: center;
-      font-family: system-ui, sans-serif;
-      font-size: 32px;
-      font-weight: 900;
-      color: #D4A359;
-      letter-spacing: 2.5px;
-      margin-top: 24px;
-      margin-bottom: 20px;
-    }
-
     .section-num {
       font-family: ui-monospace, monospace;
       font-size: 13px;
@@ -71,8 +60,8 @@
       display: flex;
       gap: 12px;
       justify-content: center;
-      margin-top: 16px;
-      margin-bottom: 28px;
+      margin-top: 10px;
+      margin-bottom: 24px;
     }
     .social-badge {
       display: inline-block;
@@ -86,6 +75,18 @@
       font-weight: 800;
       text-decoration: none;
     }
+    .action-notice-card {
+      background: #161b22;
+      border: 1px dashed #26A641;
+      border-radius: 8px;
+      padding: 30px;
+      text-anchor: middle;
+      text-align: center;
+      font-family: ui-monospace, monospace;
+      font-size: 12.5px;
+      color: #39D353;
+      line-height: 1.7;
+    }
     img {
       max-width: 100%;
       height: auto;
@@ -95,20 +96,24 @@
 </head>
 <body>
   <div class="preview-header">
-    <h1>HAMZA TAIF — REALISTIC PROFILE PREVIEW</h1>
+    <h1>HAMZA TAIF — PROFILE PREVIEW</h1>
     <p class="subtitle">Simulated Desktop Container Width (880px)</p>
   </div>
 
   <div class="github-container">
-    <!-- CENTERED LARGE REALISTIC PHOTO PORTRAIT -->
+    <!-- CENTERED REALISTIC PHOTO PORTRAIT (DISPLAY WIDTH: 400px) -->
     <div style="text-align: center;">
-      <div style="display: inline-block; width: 460px;">
-        <img src="assets/portrait-dark.svg" alt="Centered Large Realistic Photo Portrait">
+      <div style="display: inline-block; width: 400px;">
+        <img src="assets/portrait-dark.svg" alt="Centered Realistic Photo Portrait">
       </div>
     </div>
 
-    <!-- STATIC LARGE NAME -->
-    <div class="user-name-title">HAMZA TAIF</div>
+    <!-- DESIGNED STATIC NAME SVG -->
+    <div style="text-align: center; margin-top: 12px;">
+      <div style="display: inline-block; width: 420px;">
+        <img src="assets/name-dark.svg" alt="HAMZA TAIF">
+      </div>
+    </div>
 
     <!-- ENLARGED SOCIAL BADGES -->
     <div class="social-bar">
@@ -134,11 +139,17 @@
 
     <!-- 02 / 3D CONTRIBUTION CALENDAR -->
     <div class="section-num" style="color: #26A641;">02 / 3D CONTRIBUTION CALENDAR</div>
-    <img src="assets/github-metrics-dark.svg" alt="3D Isometric Contribution Calendar">
+    <div class="action-notice-card">
+      <strong>[ 3D ISOMETRIC CONTRIBUTION CALENDAR ]</strong><br>
+      Will be generated live from real GitHub contribution history via <code>lowlighter/metrics</code> when <code>.github/workflows/metrics.yml</code> runs on GitHub.
+    </div>
 
     <!-- 03 / CONTRIBUTION SNAKE -->
     <div class="section-num" style="color: #26A641;">03 / CONTRIBUTION SNAKE</div>
-    <img src="assets/snake-dark.svg" alt="Animated Contribution Snake">
+    <div class="action-notice-card">
+      <strong>[ ANIMATED CONTRIBUTION SNAKE ]</strong><br>
+      Will be generated live from real contribution history via <code>Platane/snk</code> when <code>.github/workflows/snake.yml</code> runs and pushes to the <code>output</code> branch.
+    </div>
 
     <!-- 04 / GITHUB STATS -->
     <div class="section-num">04 / GITHUB STATS</div>

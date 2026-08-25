@@ -7,6 +7,9 @@ def main():
     import portrait
     portrait.generate_portrait_svg("hamza.png")
 
+    import name
+    name.main()
+
     import signature
     signature.main()
 
@@ -18,12 +21,6 @@ def main():
 
     import radars
     radars.main()
-
-    import metrics_baseline
-    metrics_baseline.main()
-
-    import snake_local
-    snake_local.main()
 
     import journey
     journey.main()
