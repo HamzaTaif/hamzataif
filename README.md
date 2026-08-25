@@ -12,7 +12,7 @@
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/name-dark.svg">
     <source media="(prefers-color-scheme: light)" srcset="assets/name-light.svg">
-    <img src="assets/name-dark.svg" alt="HAMZA TAIF" width="440" />
+    <img src="assets/name-dark.svg" alt="HAMZA TAIF" width="520" />
   </picture>
 </div>
 

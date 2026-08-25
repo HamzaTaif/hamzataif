@@ -1,18 +1,28 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 90" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 95" width="100%" height="100%">
   <title>HAMZA TAIF — Designed Typography Name Header</title>
   <style>
     .name-text {
       font-family: ui-monospace, SFMono-Regular, "Roboto Mono", Menlo, Consolas, "Liberation Mono", monospace;
-      font-size: 40px;
+      font-size: 48px;
       font-weight: 900;
-      letter-spacing: 6px;
+      letter-spacing: 8px;
       text-anchor: middle;
+    }
+    .hamza-part {
+      fill: #F5F4F1;
+      stroke: #F5F4F1;
+      stroke-width: 1.2px;
+    }
+    .taif-part {
+      fill: #D4A359;
+      stroke: #D4A359;
+      stroke-width: 1.2px;
     }
   </style>
 
-  <g transform="translate(350, 58)">
+  <g transform="translate(350, 64)">
     <text class="name-text">
-      <tspan fill="#F5F4F1">HAMZA </tspan><tspan fill="#D4A359">TAIF</tspan>
+      <tspan class="hamza-part">HAMZA </tspan><tspan class="taif-part">TAIF</tspan>
     </text>
   </g>
 </svg>

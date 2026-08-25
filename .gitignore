@@ -1,13 +1,58 @@
-# Python cache
+# ==================================================
+# GitHub Profile Repository .gitignore
+# ==================================================
+
+# Python bytecode & cache
 __pycache__/
 *.py[cod]
 *$py.class
 
-# Temporary / OS files
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Environment files & secrets
+.env
+.env.*
+!.env.example
+
+# IDE / Editor configuration
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS generated files
 .DS_Store
 Thumbs.db
+desktop.ini
+
+# Python test & lint caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Temporary / Log files
 *.tmp
+*.temp
 *.log
 
-# Source photo (do not commit personal source image to repo)
+# Local comparison & scratch outputs
+comparison.html
+compare_portrait.html
+
+# Local personal source photo
 hamza.png
+
+# NOTE: The following profile directories and generated assets MUST remain tracked:
+# - README.md
+# - assets/ (and all generated *.svg files referenced by README)
+# - scripts/
+# - config/
+# - .github/workflows/
+# - preview.html
+# - metrics.plugin.isocalendar.svg
