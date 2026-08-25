@@ -16,7 +16,7 @@ def blend_colors(c1, c2, factor):
     )
 
 def rgb_to_hex(rgb):
-    return f"#{rgb[0]:02x}{rgb[1]:02x}{rgb[2]:02x}"
+    return f"#{max(0, min(255, rgb[0])):02x}{max(0, min(255, rgb[1])):02x}{max(0, min(255, rgb[2])):02x}"
 
 def generate_portrait_svg(input_path="hamza.png", output_dark="assets/portrait-dark.svg", output_light="assets/portrait-light.svg"):
     if not os.path.exists(input_path):
@@ -28,21 +28,21 @@ def generate_portrait_svg(input_path="hamza.png", output_dark="assets/portrait-d
     crop_h = int(h * 0.78)
     cropped = orig.crop((0, 0, w, crop_h))
 
-    # Grid matching reference he.png: 78 cols x 92 rows (clearly exposed dot structure)
-    grid_w = 78
-    grid_h = 92
-    
+    # High-resolution sampling grid matching reference girl portrait: 210 cols x 250 rows (~38,000 dots)
+    grid_w = 210
+    grid_h = 250
+
     resized = cropped.resize((grid_w, grid_h), Image.Resampling.LANCZOS)
-    
-    # Contrast lift for sharp feature definition
-    enhancer = ImageEnhance.Contrast(resized)
-    enhanced = enhancer.enhance(1.30)
 
-    dot_spacing = 5.8
-    offset_x = 10
-    offset_y = 10
+    # Mild detail sharpening to preserve crisp facial features (eyes, nose, beard contours)
+    enhancer = ImageEnhance.Sharpness(resized)
+    enhanced = enhancer.enhance(1.4)
 
-    num_bands = 54 # 54 horizontal bands for 3.5s smooth top-to-bottom scan
+    dot_spacing = 2.6
+    offset_x = 12
+    offset_y = 12
+
+    num_bands = 70 # 70 horizontal bands for 4.0s smooth top-to-bottom scan reveal
     rows_per_band = math.ceil(grid_h / num_bands)
 
     dark_bands = {i: [] for i in range(num_bands)}
@@ -51,120 +51,98 @@ def generate_portrait_svg(input_path="hamza.png", output_dark="assets/portrait-d
     total_dots_dark = 0
     total_dots_light = 0
 
-    # Rich Warm Palette derived from reference he.png:
-    # Deep Brown -> Burnt Maroon -> Copper -> Burnt Orange -> Warm Amber -> Gold -> Warm Gold Cream -> Bright Highlight
-    warm_palette = [
-        (0.00, hex_to_rgb("#1A0D08")), # Shadow baseline
-        (0.18, hex_to_rgb("#441D12")), # Deep brown maroon
-        (0.32, hex_to_rgb("#6E2B15")), # Burnt maroon
-        (0.48, hex_to_rgb("#993C17")), # Rich copper
-        (0.62, hex_to_rgb("#C6561A")), # Burnt orange
-        (0.75, hex_to_rgb("#E5741E")), # Warm amber
-        (0.86, hex_to_rgb("#EF9D35")), # Gold
-        (0.94, hex_to_rgb("#F4C065")), # Warm gold cream
-        (1.00, hex_to_rgb("#F7E5B5"))  # Bright highlight
+    # Continuous warm palette spectrum derived from reference he.png
+    warm_spectrum = [
+        (0.00, hex_to_rgb("#120A07")), # Deep brown shadow
+        (0.25, hex_to_rgb("#4A1C10")), # Deep copper brown
+        (0.45, hex_to_rgb("#7D3015")), # Burnt copper
+        (0.65, hex_to_rgb("#B84D18")), # Warm amber orange
+        (0.80, hex_to_rgb("#E08B2A")), # Warm gold
+        (0.92, hex_to_rgb("#ECAE4E")), # Soft gold cream
+        (1.00, hex_to_rgb("#F5E2B5"))  # Warm highlight cream
     ]
 
-    def get_warm_color(val):
+    def get_warm_tone(val):
         val = max(0.0, min(1.0, val))
-        for i in range(len(warm_palette) - 1):
-            v1, c1 = warm_palette[i]
-            v2, c2 = warm_palette[i+1]
+        for i in range(len(warm_spectrum) - 1):
+            v1, c1 = warm_spectrum[i]
+            v2, c2 = warm_spectrum[i+1]
             if v1 <= val <= v2:
                 f = (val - v1) / (v2 - v1)
                 return blend_colors(c1, c2, f)
-        return warm_palette[-1][1]
+        return warm_spectrum[-1][1]
 
     for gy in range(grid_h):
         band_idx = min(num_bands - 1, gy // rows_per_band)
         norm_y = gy / (grid_h - 1)
-        norm_x = gx_norm = gx = 0 # placeholder
 
-        # Edge fade at very bottom
-        if norm_y > 0.86:
-            edge_fade = 1.0 - ((norm_y - 0.86) / 0.14)
+        # Smooth boundary fade at very bottom
+        if norm_y > 0.88:
+            edge_fade = 1.0 - ((norm_y - 0.88) / 0.12)
         else:
             edge_fade = 1.0
 
         for gx in range(grid_w):
             r, g, b, a = enhanced.getpixel((gx, gy))
-            if a < 35:
+            if a < 25:
                 continue
 
             norm_x = gx / (grid_w - 1)
             dist_center = abs(norm_x - 0.5) * 2.0
             side_fade = 1.0 if dist_center < 0.85 else (1.0 - (dist_center - 0.85)/0.15)
             fade = edge_fade * side_fade
-            if fade <= 0.03:
+            if fade <= 0.02:
                 continue
 
-            # Perceptual luminance
+            # Continuous perceptual luminance
             raw_lum = (0.299 * r + 0.587 * g + 0.114 * b) / 255.0
+            
+            # Smooth midtone lift curve (gamma 0.65)
+            lum = (raw_lum ** 0.65) * fade
 
-            # Lift midtones with gamma 0.52
-            lum = (raw_lum ** 0.52) * fade
+            cx = round(offset_x + gx * dot_spacing, 2)
+            cy = round(offset_y + gy * dot_spacing, 2)
 
-            cx = round(offset_x + gx * dot_spacing, 1)
-            cy = round(offset_y + gy * dot_spacing, 1)
+            # Continuous dot radius (0.45px to 1.80px max) - matching reference he.png dot size
+            r_dot = round(max(0.45, 0.45 + (lum ** 1.1) * 1.35), 2)
+            opacity = round(min(1.0, max(0.40, 0.40 + (lum ** 0.8) * 0.58)), 2)
 
-            # Region detection: White shirt vs Dark waistcoat vs Face & Hair
-            is_white_shirt = (r > 180 and g > 180 and b > 180 and norm_y > 0.40 and (norm_x < 0.28 or norm_x > 0.72 or norm_y > 0.80))
-            is_dark_waistcoat = (norm_y > 0.40 and not is_white_shirt and raw_lum < 0.35)
-            is_face_region = (norm_y < 0.52 and not is_white_shirt)
-
-            # --- DARK MODE COLOR & DOT SIZING ---
-            if is_white_shirt:
-                # White sleeves: soft warm cream with restrained dot radius so face remains primary focal point
-                color_dark = "#DCD5C9"
-                r_dot = round(max(1.4, 1.4 + raw_lum * 1.4), 2)
-                opacity = 0.78
-            elif is_dark_waistcoat:
-                # Dark waistcoat: subtle warm dark copper dots so vest texture & buttons pop without overpowering face
-                wc_lum = max(0.08, raw_lum * 1.8)
-                wc_rgb = blend_colors((20, 16, 14), (85, 68, 55), wc_lum)
-                color_dark = rgb_to_hex(wc_rgb)
-                r_dot = round(max(1.1, 1.1 + raw_lum * 2.8), 2)
-                opacity = round(min(1.0, max(0.5, 0.5 + raw_lum * 0.5)), 2)
-            elif is_face_region:
-                # Face & Hair: Glowing warm gold/amber gradient matching reference he.png
-                skin_lum = min(1.0, lum * 1.18)
-                color_dark = rgb_to_hex(get_warm_color(skin_lum))
-                # Large, bold circular dots (up to 3.85px radius) matching he.png
-                r_dot = round(max(1.0, 1.0 + skin_lum * 2.85), 2)
-                opacity = round(min(1.0, max(0.55, 0.55 + skin_lum * 0.45)), 2)
+            # Continuous color blending: blend original photo RGB with warm tone map
+            # Face region receives warm amber glow; clothing/hair preserve realistic photo contrast
+            is_white_clothing = (r > 185 and g > 185 and b > 185 and norm_y > 0.45)
+            is_face_skin = (norm_y < 0.50 and not is_white_clothing and raw_lum > 0.20)
+            
+            if is_white_clothing:
+                w_factor = 0.15 # 15% warm tone, 85% photo white
+            elif is_face_skin:
+                w_factor = 0.42 # 42% warm gold tone, 58% photo skin
             else:
-                color_dark = rgb_to_hex(get_warm_color(lum))
-                r_dot = round(max(1.0, 1.0 + lum * 2.6), 2)
-                opacity = round(min(1.0, max(0.5, 0.5 + lum * 0.5)), 2)
+                w_factor = 0.30 # 30% warm tone, 70% photo color
+
+            warm_rgb = get_warm_tone(lum)
+            photo_rgb = (r, g, b)
+
+            # Blend dark mode color
+            dark_rgb = blend_colors(photo_rgb, warm_rgb, w_factor)
+            color_dark = rgb_to_hex(dark_rgb)
+
+            # Blend light mode color
+            light_base = blend_colors((15, 12, 10), photo_rgb, 0.70)
+            light_rgb = blend_colors(light_base, warm_rgb, w_factor * 0.6)
+            color_light = rgb_to_hex(light_rgb)
 
             dark_bands[band_idx].append(f'<circle cx="{cx}" cy="{cy}" r="{r_dot}" fill="{color_dark}" opacity="{opacity}"/>')
             total_dots_dark += 1
 
-            # --- LIGHT MODE COLOR & DOT SIZING ---
-            if is_white_shirt:
-                color_light = "#2D2620"
-                r_dot_light = round(max(1.3, 1.3 + raw_lum * 1.4), 2)
-            elif is_dark_waistcoat:
-                color_light = "#181412"
-                r_dot_light = r_dot
-            elif is_face_region:
-                light_rgb = blend_colors((25, 18, 12), (180, 110, 35), lum)
-                color_light = rgb_to_hex(light_rgb)
-                r_dot_light = r_dot
-            else:
-                light_rgb = blend_colors((20, 15, 10), (160, 90, 30), lum)
-                color_light = rgb_to_hex(light_rgb)
-                r_dot_light = r_dot
-
-            light_bands[band_idx].append(f'<circle cx="{cx}" cy="{cy}" r="{r_dot_light}" fill="{color_light}" opacity="{opacity}"/>')
+            light_bands[band_idx].append(f'<circle cx="{cx}" cy="{cy}" r="{r_dot}" fill="{color_light}" opacity="{opacity}"/>')
             total_dots_light += 1
 
     svg_w = int(offset_x * 2 + grid_w * dot_spacing)
     svg_h = int(offset_y * 2 + grid_h * dot_spacing)
 
-    # CSS Keyframe Delays for 3.5s Smooth Top-to-Bottom Construction Sweep
+    # CSS Keyframe Delays for 4.0s Smooth Top-to-Bottom Scan Sweep
     css_rules = []
-    total_anim_duration = 3.5 # 3.5 seconds
+    total_anim_duration = 4.0 # 4.0 seconds
     delay_step = round(total_anim_duration / num_bands, 3)
 
     for i in range(num_bands):
@@ -184,7 +162,7 @@ def generate_portrait_svg(input_path="hamza.png", output_dark="assets/portrait-d
             light_bands_xml.append(f'<g class="band b-{i}">\n      ' + '\n      '.join(light_bands[i]) + '\n    </g>')
 
     dark_svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {svg_w} {svg_h}" width="100%" height="100%">
-  <title>Hamza Taif — Warm Stipple Pixel Portrait (Dark)</title>
+  <title>Hamza Taif — High Resolution Halftone Portrait (Dark)</title>
   <style>
     .band {{
       opacity: 0;
@@ -205,7 +183,7 @@ def generate_portrait_svg(input_path="hamza.png", output_dark="assets/portrait-d
 </svg>'''
 
     light_svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {svg_w} {svg_h}" width="100%" height="100%">
-  <title>Hamza Taif — Warm Stipple Pixel Portrait (Light)</title>
+  <title>Hamza Taif — High Resolution Halftone Portrait (Light)</title>
   <style>
     .band {{
       opacity: 0;
@@ -234,8 +212,8 @@ def generate_portrait_svg(input_path="hamza.png", output_dark="assets/portrait-d
     dark_size_kb = os.path.getsize(output_dark) / 1024.0
     light_size_kb = os.path.getsize(output_light) / 1024.0
 
-    print(f"Generated {output_dark}: {dark_size_kb:.1f} KB ({total_dots_dark} warm pixel dots across {num_bands} bands)")
-    print(f"Generated {output_light}: {light_size_kb:.1f} KB ({total_dots_light} warm pixel dots across {num_bands} bands)")
+    print(f"Generated {output_dark}: {dark_size_kb:.1f} KB ({total_dots_dark} halftone dots across {num_bands} bands)")
+    print(f"Generated {output_light}: {light_size_kb:.1f} KB ({total_dots_light} halftone dots across {num_bands} bands)")
     print(f"Dimensions: {svg_w}x{svg_h} viewBox")
 
 if __name__ == "__main__":
