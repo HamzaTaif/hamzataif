@@ -2,7 +2,7 @@
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/portrait-dark.svg">
     <source media="(prefers-color-scheme: light)" srcset="assets/portrait-light.svg">
-    <img src="assets/portrait-dark.svg" alt="Hamza Taif Realistic Photo Portrait" width="315" />
+    <img src="assets/portrait-dark.svg" alt="Hamza Taif Realistic Photo Portrait" width="300" />
   </picture>
 </div>
 

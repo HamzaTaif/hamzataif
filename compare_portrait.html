@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Portrait Comparison — Reference vs Generated</title>
+  <style>
+    body {
+      background-color: #0d1117;
+      color: #c9d1d9;
+      font-family: system-ui, sans-serif;
+      padding: 40px;
+    }
+    .comparison-row {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+      align-items: flex-start;
+    }
+    .card {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      width: 330px;
+    }
+    h3 {
+      font-size: 15px;
+      color: #D4A359;
+      margin-top: 0;
+      margin-bottom: 15px;
+    }
+    img {
+      width: 300px;
+      height: auto;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+  <div style="text-align: center; margin-bottom: 30px;">
+    <h2 style="color: #F5F4F1;">PORTRAIT VISUAL COMPARISON</h2>
+    <p style="color: #8b949e;">Targeting exact pixel dot character, luminance lift, and warm gold/amber gradient of reference portrait</p>
+  </div>
+
+  <div class="comparison-row">
+    <div class="card">
+      <h3>REFERENCE PORTRAIT (he.png)</h3>
+      <img src="he.png" alt="Reference Portrait">
+    </div>
+
+    <div class="card">
+      <h3>NEW HAMZA PORTRAIT (assets/portrait-dark.svg)</h3>
+      <img src="assets/portrait-dark.svg" alt="New Hamza Portrait">
+    </div>
+  </div>
+</body>
+</html>
