@@ -11,7 +11,7 @@
 
   <!-- Title -->
   <text x="82" y="42" font-family="system-ui, -apple-system, sans-serif" font-size="19" font-weight="800" fill="#1A1917" letter-spacing="1">CLOUDGUARDIAN AI</text>
-  
+  <text x="820" y="38" font-family="ui-monospace, monospace" font-size="11" fill="#6E6A63" text-anchor="end">★ 1</text>
 
   <!-- Description -->
   <text x="26" y="78" font-family="system-ui, -apple-system, sans-serif" font-size="13.5" font-weight="400" fill="#6E6A63">AI-powered cloud monitoring tool built with FastAPI backend and LLM workflows for Kiro Hackathon.</text>
