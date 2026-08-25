@@ -20,18 +20,18 @@ def generate_portrait_elements(input_path="hamza.png", is_dark=True):
 
     orig = Image.open(input_path).convert("RGBA")
     w, h = orig.size
-    crop_h = int(h * 0.74)
+    crop_h = int(h * 0.75)
     cropped = orig.crop((0, 0, w, crop_h))
 
-    grid_w = 78
-    grid_h = 94
+    grid_w = 84
+    grid_h = 100
     resized = cropped.resize((grid_w, grid_h), Image.Resampling.LANCZOS)
 
     gray = resized.convert("L")
     enhancer = ImageEnhance.Contrast(gray)
-    gray_enhanced = enhancer.enhance(1.18)
+    gray_enhanced = enhancer.enhance(1.15)
 
-    dot_spacing = 3.6
+    dot_spacing = 3.5
     offset_x = 0
     offset_y = 0
 
@@ -54,31 +54,37 @@ def generate_portrait_elements(input_path="hamza.png", is_dark=True):
 
             norm_x = gx / (grid_w - 1)
             dist_center = abs(norm_x - 0.5) * 2.0
-            side_fade = 1.0 if dist_center < 0.72 else (1.0 - (dist_center - 0.72)/0.28)
+            side_fade = 1.0 if dist_center < 0.74 else (1.0 - (dist_center - 0.74)/0.26)
             fade = edge_fade * side_fade
-            if fade <= 0.05:
+            if fade <= 0.04:
                 continue
 
             raw_lum = gray_enhanced.getpixel((gx, gy)) / 255.0
-            lum = math.pow(raw_lum, 0.85)
+            lum = math.pow(raw_lum, 0.82)
 
             cx = round(offset_x + gx * dot_spacing, 1)
             cy = round(offset_y + gy * dot_spacing, 1)
 
             if is_dark:
-                if lum > 0.08:
-                    r_dot = round((0.42 + lum * 1.05) * fade, 1)
-                    if lum > 0.60:
+                if lum > 0.06:
+                    r_dot = round((0.45 + lum * 1.1) * fade, 1)
+                    if lum > 0.70:
                         col = "#F5F4F1"
-                        op = round(min(1.0, (0.55 + lum * 0.45) * fade), 1)
-                    elif lum > 0.28:
-                        col = "#8B6F47"
+                        op = round(min(1.0, (0.65 + lum * 0.35) * fade), 1)
+                    elif lum > 0.48:
+                        col = "#E5B869"
+                        op = round(min(1.0, (0.6 + lum * 0.4) * fade), 1)
+                    elif lum > 0.30:
+                        col = "#D4A359"
                         op = round(min(1.0, (0.55 + lum * 0.4) * fade), 1)
+                    elif lum > 0.16:
+                        col = "#C86D3B"
+                        op = round(min(1.0, (0.5 + lum * 0.45) * fade), 1)
                     else:
-                        col = "#9E8B70" if gy < 42 else "#A8A49C"
-                        op = round(min(1.0, (0.35 + lum * 0.45) * fade), 1)
+                        col = "#8B6F47"
+                        op = round(min(1.0, (0.4 + lum * 0.5) * fade), 1)
 
-                    if r_dot >= 0.4 and op >= 0.08:
+                    if r_dot >= 0.4 and op >= 0.06:
                         key = (col, op)
                         if key not in groups:
                             groups[key] = []
@@ -86,19 +92,22 @@ def generate_portrait_elements(input_path="hamza.png", is_dark=True):
                         total_dots += 1
             else:
                 inv_lum = 1.0 - lum
-                if inv_lum > 0.08:
-                    r_dot = round((0.42 + inv_lum * 1.05) * fade, 1)
-                    if inv_lum > 0.55:
+                if inv_lum > 0.06:
+                    r_dot = round((0.45 + inv_lum * 1.1) * fade, 1)
+                    if inv_lum > 0.60:
                         col = "#1A1917"
-                        op = round(min(1.0, (0.55 + inv_lum * 0.45) * fade), 1)
-                    elif inv_lum > 0.25:
+                        op = round(min(1.0, (0.65 + inv_lum * 0.35) * fade), 1)
+                    elif inv_lum > 0.38:
                         col = "#8B6F47"
+                        op = round(min(1.0, (0.6 + inv_lum * 0.4) * fade), 1)
+                    elif inv_lum > 0.20:
+                        col = "#C86D3B"
                         op = round(min(1.0, (0.55 + inv_lum * 0.4) * fade), 1)
                     else:
-                        col = "#55524C"
-                        op = round(min(1.0, (0.35 + inv_lum * 0.45) * fade), 1)
+                        col = "#D4A359"
+                        op = round(min(1.0, (0.4 + inv_lum * 0.5) * fade), 1)
 
-                    if r_dot >= 0.4 and op >= 0.08:
+                    if r_dot >= 0.4 and op >= 0.06:
                         key = (col, op)
                         if key not in groups:
                             groups[key] = []
@@ -117,14 +126,14 @@ def generate_portrait_elements(input_path="hamza.png", is_dark=True):
 def create_hero_svg(is_dark=True):
     bg = "#0D0C0A" if is_dark else "#FAF9F6"
     text_primary = "#F5F4F1" if is_dark else "#1A1917"
-    text_taif = "#8B6F47" if is_dark else "#8B6F47"
+    text_taif = "#E5B869" if is_dark else "#8B6F47" # Warm Gold in dark mode
     text_muted = "#A6A29A" if is_dark else "#6E6A63"
     line_color = "#3A3935" if is_dark else "#E2E0D8"
-    accent = "#8B6F47"
+    accent = "#D4A359" if is_dark else "#8B6F47"
 
     portrait_xml, pw, ph = generate_portrait_elements("hamza.png", is_dark=is_dark)
 
-    portrait_group = f'''<g transform="translate(570, 10)">
+    portrait_group = f'''<g transform="translate(560, 8)">
     <style>
       .hero-portrait {{
         animation: heroPortraitReveal 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -152,23 +161,23 @@ def create_hero_svg(is_dark=True):
   <rect x="0" y="0" width="3.5" height="340" fill="{accent}" />
 
   <!-- Top Structural Line -->
-  <line x1="42" y1="38" x2="530" y2="38" stroke="{line_color}" stroke-width="1" />
+  <line x1="42" y1="36" x2="520" y2="36" stroke="{line_color}" stroke-width="1" />
 
   <!-- Stacked Dominant Typography -->
-  <text x="38" y="142" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="88" font-weight="900" fill="{text_primary}" letter-spacing="-1">HAMZA</text>
-  <text x="38" y="228" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="88" font-weight="900" fill="{text_taif}" letter-spacing="-1">TAIF</text>
+  <text x="38" y="136" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="88" font-weight="900" fill="{text_primary}" letter-spacing="-1">HAMZA</text>
+  <text x="38" y="222" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="88" font-weight="900" fill="{text_taif}" letter-spacing="-1">TAIF</text>
 
   <!-- Discipline Line -->
-  <text x="40" y="274" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="700" fill="{text_muted}" letter-spacing="1">SOFTWARE ENGINEERING  ·  AI  ·  FULL-STACK APP DEVELOPMENT</text>
+  <text x="40" y="266" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="700" fill="{text_muted}" letter-spacing="1">SOFTWARE ENGINEERING  ·  AI  ·  FULL-STACK APP DEVELOPMENT</text>
 
   <!-- Tagline -->
-  <text x="40" y="302" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13.5" font-weight="400" fill="{text_primary}" opacity="0.8" letter-spacing="0.3">Building useful software, one system at a time.</text>
+  <text x="40" y="294" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13.5" font-weight="400" fill="{text_primary}" opacity="0.8" letter-spacing="0.3">Building useful software, one system at a time.</text>
 
   <!-- Right Side Stipple Portrait -->
   {portrait_group}
 
   <!-- Bottom Structural Line -->
-  <line x1="42" y1="318" x2="530" y2="318" stroke="{line_color}" stroke-width="1" />
+  <line x1="42" y1="314" x2="520" y2="314" stroke="{line_color}" stroke-width="1" />
 </svg>'''
     return svg
 
@@ -178,7 +187,7 @@ def main():
         f.write(create_hero_svg(is_dark=True))
     with open("assets/hero-light.svg", "w", encoding="utf-8") as f:
         f.write(create_hero_svg(is_dark=False))
-    print("Generated assets/hero-dark.svg and assets/hero-light.svg with refined facial midtones.")
+    print("Generated assets/hero-dark.svg and assets/hero-light.svg")
 
 if __name__ == "__main__":
     main()

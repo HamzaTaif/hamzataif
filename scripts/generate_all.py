@@ -19,14 +19,20 @@ def main():
     import toolbox
     toolbox.main()
 
-    import languages
-    languages.main()
+    import radars
+    radars.main()
+
+    import contributions_3d
+    contributions_3d.main()
+
+    import snake_local
+    snake_local.main()
 
     import journey
     journey.main()
 
-    import pulse
-    pulse.main()
+    import github_stats
+    github_stats.main()
 
     print("All profile SVGs generated successfully!")
 

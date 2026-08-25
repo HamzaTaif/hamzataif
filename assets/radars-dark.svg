@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 350" width="100%" height="100%">
+  <title>Engineering Focus &amp; Language Mix Radar Charts</title>
+
+  <!-- Card Background -->
+  <rect x="0" y="0" width="880" height="350" rx="8" fill="#0D0C0A" stroke="#3A3935" stroke-width="1" />
+  <rect x="0" y="0" width="3.5" height="350" fill="#D4A359" />
+
+  <!-- Headers -->
+  <text x="40" y="38" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" font-weight="700" fill="#D4A359" letter-spacing="2">01 // ENGINEERING FOCUS</text>
+  <text x="480" y="38" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="11" font-weight="700" fill="#D4A359" letter-spacing="2">02 // LANGUAGE MIX (REAL DATA)</text>
+  <line x1="30" y1="48" x2="850" y2="48" stroke="#3A3935" stroke-width="1" />
+  <line x1="440" y1="48" x2="440" y2="330" stroke="#3A3935" stroke-width="1" stroke-dasharray="3,3" />
+
+  <!-- Left Radar Chart -->
+  <polygon points="220.0,176.2 240.6,188.1 240.6,211.9 220.0,223.8 199.4,211.9 199.4,188.1" fill="none" stroke="#3A3935" stroke-width="1" stroke-dasharray="2,2" />
+<polygon points="220.0,152.5 261.1,176.2 261.1,223.8 220.0,247.5 178.9,223.8 178.9,176.3" fill="none" stroke="#3A3935" stroke-width="1" stroke-dasharray="2,2" />
+<polygon points="220.0,128.8 281.7,164.4 281.7,235.6 220.0,271.2 158.3,235.6 158.3,164.4" fill="none" stroke="#3A3935" stroke-width="1" stroke-dasharray="2,2" />
+<polygon points="220.0,105.0 302.3,152.5 302.3,247.5 220.0,295.0 137.7,247.5 137.7,152.5" fill="none" stroke="#3A3935" stroke-width="1" stroke-dasharray="2,2" />
+<line x1="220" y1="200" x2="220.0" y2="105.0" stroke="#3A3935" stroke-width="1" />
+<text x="220.0" y="85.0" font-family="ui-monospace, SFMono-Regular, monospace" font-size="11" font-weight="700" fill="#F5F4F1" text-anchor="middle">Full-Stack</text>
+<line x1="220" y1="200" x2="302.2724133595217" y2="152.5" stroke="#3A3935" stroke-width="1" />
+<text x="323.1" y="144.5" font-family="ui-monospace, SFMono-Regular, monospace" font-size="11" font-weight="700" fill="#F5F4F1" text-anchor="start">Flutter/Apps</text>
+<line x1="220" y1="200" x2="302.2724133595217" y2="247.5" stroke="#3A3935" stroke-width="1" />
+<text x="323.1" y="263.5" font-family="ui-monospace, SFMono-Regular, monospace" font-size="11" font-weight="700" fill="#F5F4F1" text-anchor="start">Backend/APIs</text>
+<line x1="220" y1="200" x2="220.0" y2="295.0" stroke="#3A3935" stroke-width="1" />
+<text x="220.0" y="323.0" font-family="ui-monospace, SFMono-Regular, monospace" font-size="11" font-weight="700" fill="#F5F4F1" text-anchor="middle">AI Integration</text>
+<line x1="220" y1="200" x2="137.72758664047836" y2="247.50000000000003" stroke="#3A3935" stroke-width="1" />
+<text x="116.9" y="263.5" font-family="ui-monospace, SFMono-Regular, monospace" font-size="11" font-weight="700" fill="#F5F4F1" text-anchor="end">Databases</text>
+<line x1="220" y1="200" x2="137.7275866404783" y2="152.50000000000006" stroke="#3A3935" stroke-width="1" />
+<text x="116.9" y="144.5" font-family="ui-monospace, SFMono-Regular, monospace" font-size="11" font-weight="700" fill="#F5F4F1" text-anchor="end">DevOps</text>
+<polygon points="220.0,116.4 295.7,156.3 289.9,240.4 220.0,276.0 155.8,237.1 162.4,166.8" fill="rgba(212, 163, 89, 0.28)" stroke="#E5B869" stroke-width="2.5" />
+<circle cx="220.0" cy="116.4" r="4" fill="#E5B869" stroke="#F5F4F1" stroke-width="1.5" />
+<circle cx="295.7" cy="156.3" r="4" fill="#E5B869" stroke="#F5F4F1" stroke-width="1.5" />
+<circle cx="289.9" cy="240.4" r="4" fill="#E5B869" stroke="#F5F4F1" stroke-width="1.5" />
+<circle cx="220.0" cy="276.0" r="4" fill="#E5B869" stroke="#F5F4F1" stroke-width="1.5" />
+<circle cx="155.8" cy="237.1" r="4" fill="#E5B869" stroke="#F5F4F1" stroke-width="1.5" />
+<circle cx="162.4" cy="166.8" r="4" fill="#E5B869" stroke="#F5F4F1" stroke-width="1.5" />
+
+
+  <!-- Right Radar Chart -->
+  <polygon points="660.0,176.2 683.8,200.0 660.0,223.8 636.2,200.0" fill="none" stroke="#3A3935" stroke-width="1" stroke-dasharray="2,2" />
+<polygon points="660.0,152.5 707.5,200.0 660.0,247.5 612.5,200.0" fill="none" stroke="#3A3935" stroke-width="1" stroke-dasharray="2,2" />
+<polygon points="660.0,128.8 731.2,200.0 660.0,271.2 588.8,200.0" fill="none" stroke="#3A3935" stroke-width="1" stroke-dasharray="2,2" />
+<polygon points="660.0,105.0 755.0,200.0 660.0,295.0 565.0,200.0" fill="none" stroke="#3A3935" stroke-width="1" stroke-dasharray="2,2" />
+<line x1="660" y1="200" x2="660.0" y2="105.0" stroke="#3A3935" stroke-width="1" />
+<text x="660.0" y="85.0" font-family="ui-monospace, SFMono-Regular, monospace" font-size="11" font-weight="700" fill="#F5F4F1" text-anchor="middle">Python</text>
+<line x1="660" y1="200" x2="755.0" y2="200.0" stroke="#3A3935" stroke-width="1" />
+<text x="779.0" y="204.0" font-family="ui-monospace, SFMono-Regular, monospace" font-size="11" font-weight="700" fill="#F5F4F1" text-anchor="start">JavaScript</text>
+<line x1="660" y1="200" x2="660.0" y2="295.0" stroke="#3A3935" stroke-width="1" />
+<text x="660.0" y="323.0" font-family="ui-monospace, SFMono-Regular, monospace" font-size="11" font-weight="700" fill="#F5F4F1" text-anchor="middle">TypeScript</text>
+<line x1="660" y1="200" x2="565.0" y2="200.0" stroke="#3A3935" stroke-width="1" />
+<text x="541.0" y="204.0" font-family="ui-monospace, SFMono-Regular, monospace" font-size="11" font-weight="700" fill="#F5F4F1" text-anchor="end">CSS</text>
+<polygon points="660.0,105.0 755.0,200.0 660.0,247.5 612.5,200.0" fill="rgba(212, 163, 89, 0.28)" stroke="#D4A359" stroke-width="2.5" />
+<circle cx="660.0" cy="105.0" r="4" fill="#D4A359" stroke="#F5F4F1" stroke-width="1.5" />
+<circle cx="755.0" cy="200.0" r="4" fill="#D4A359" stroke="#F5F4F1" stroke-width="1.5" />
+<circle cx="660.0" cy="247.5" r="4" fill="#D4A359" stroke="#F5F4F1" stroke-width="1.5" />
+<circle cx="612.5" cy="200.0" r="4" fill="#D4A359" stroke="#F5F4F1" stroke-width="1.5" />
+
+</svg>

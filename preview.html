@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Hamza Taif — GitHub Profile Preview (GitHub Scale & Mobile Modes)</title>
+  <title>Hamza Taif — GitHub Profile Complete Preview</title>
   <style>
     :root {
       --dark-bg: #0D0C0A;
@@ -18,7 +18,7 @@
       color: #c9d1d9;
     }
     .preview-header {
-      max-width: 1000px;
+      max-width: 900px;
       margin: 0 auto 30px auto;
       border-bottom: 1px solid #30363d;
       padding-bottom: 20px;
@@ -27,7 +27,7 @@
       font-size: 22px;
       font-weight: 800;
       letter-spacing: 1px;
-      color: #8B6F47;
+      color: #D4A359;
       margin-bottom: 6px;
     }
     p.subtitle {
@@ -36,68 +36,44 @@
       color: #8b949e;
       margin: 0;
     }
-    .view-mode-bar {
-      display: flex;
-      gap: 12px;
-      margin-top: 16px;
-    }
-    .btn {
-      padding: 8px 16px;
-      border-radius: 6px;
-      font-family: ui-monospace, monospace;
-      font-size: 12px;
-      font-weight: 700;
-      cursor: pointer;
-      border: 1px solid #30363d;
-      background: #161b22;
-      color: #c9d1d9;
-      text-decoration: none;
-    }
-    .btn:hover {
-      border-color: #8B6F47;
-      color: #8B6F47;
-    }
     
-    /* Container simulation sizes */
-    .github-desktop-container {
+    .github-container {
       max-width: 880px;
       margin: 0 auto 50px auto;
-      transition: max-width 0.3s ease;
-    }
-    .github-mobile-container {
-      max-width: 380px;
-      margin: 0 auto 50px auto;
-      border: 2px dashed #8B6F47;
-      padding: 10px;
-      border-radius: 8px;
-    }
-
-    .theme-toggle-title {
-      font-family: ui-monospace, monospace;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 2px;
-      color: #8B6F47;
-      margin-top: 36px;
-      margin-bottom: 14px;
-      text-transform: uppercase;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .card-preview {
-      border-radius: 10px;
-      padding: 20px;
-      margin-bottom: 24px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-    }
-    .dark-mode-preview {
       background-color: var(--dark-bg);
       border: 1px solid var(--border-dark);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
     }
-    .light-mode-preview {
-      background-color: var(--light-bg);
-      border: 1px solid var(--border-light);
+
+    .section-num {
+      font-family: ui-monospace, monospace;
+      font-size: 13px;
+      font-weight: 700;
+      color: #D4A359;
+      margin-top: 36px;
+      margin-bottom: 16px;
+      letter-spacing: 1.5px;
+    }
+    .social-bar {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 16px;
+      margin-bottom: 24px;
+    }
+    .social-badge {
+      display: inline-block;
+      padding: 6px 14px;
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 4px;
+      color: #D4A359;
+      font-family: ui-monospace, monospace;
+      font-size: 11px;
+      font-weight: 700;
+      text-decoration: none;
     }
     img {
       max-width: 100%;
@@ -108,98 +84,66 @@
 </head>
 <body>
   <div class="preview-header">
-    <h1>HAMZA TAIF — REAL GITHUB SCALE PREVIEW SUITE</h1>
-    <p class="subtitle">Exact width simulation (Desktop: 880px max-width, Mobile: 380px max-width)</p>
+    <h1>HAMZA TAIF — COMPLETE GITHUB PROFILE PREVIEW</h1>
+    <p class="subtitle">Full vertical scroll experience (Simulated desktop container width: 880px)</p>
   </div>
 
-  <!-- DESKTOP GITHUB READABILITY CONTAINER (880px MAX-WIDTH) -->
-  <div class="github-desktop-container">
-    <div style="font-family: ui-monospace, monospace; font-size: 13px; color: #8B6F47; font-weight: 700; margin-bottom: 16px;">
-      [MODE 1] DESKTOP GITHUB README CONTAINER (880px WIDTH)
-    </div>
-
-    <!-- HERO DARK & LIGHT -->
-    <div class="theme-toggle-title">01 / HERO DARK (HIGH-CONTRAST &amp; FINE STIPPLE PORTRAIT)</div>
-    <div class="card-preview dark-mode-preview">
+  <div class="github-container">
+    <!-- 01 / HERO & PORTRAIT -->
+    <div style="text-align: center;">
       <img src="assets/hero-dark.svg" alt="Hero Dark">
+      <div class="social-bar">
+        <span class="social-badge">PORTFOLIO</span>
+        <span class="social-badge">GITHUB</span>
+        <span class="social-badge">TWITTER / X</span>
+        <span class="social-badge">EMAIL</span>
+      </div>
     </div>
 
-    <div class="theme-toggle-title">02 / HERO LIGHT</div>
-    <div class="card-preview light-mode-preview">
-      <img src="assets/hero-light.svg" alt="Hero Light">
+    <!-- INTRO & NOW -->
+    <p style="font-size: 14.5px; color: #F5F4F1; line-height: 1.6; margin-top: 24px;">
+      I'm a Software Engineering student at UET Peshawar building full-stack apps and AI tools — from interface to backend.
+    </p>
+
+    <div class="section-num">01 / NOW</div>
+    <div style="font-size: 13.5px; color: #A6A29A; line-height: 1.8;">
+      <strong style="color: #F5F4F1;">Cross-platform apps</strong><br>
+      Building cross-platform apps for campus and everyday use.<br><br>
+      <strong style="color: #F5F4F1;">AI &amp; backend</strong><br>
+      Experimenting with FastAPI services and LLM API integrations, mostly in Python.<br><br>
+      <strong style="color: #F5F4F1;">Product development</strong><br>
+      Taking projects from interface to backend and deployment.
     </div>
 
-    <!-- FEATURED PROJECTS -->
-    <div class="theme-toggle-title">03 / ENLARGED CASE STUDY PROJECT CARDS (DARK &amp; LIGHT)</div>
-    <div class="card-preview dark-mode-preview">
-      <img src="assets/project-uet-connect-dark.svg" alt="UET Connect Dark" style="margin-bottom: 18px;">
-      <img src="assets/project-apex-discipline-dark.svg" alt="Apex Discipline Dark" style="margin-bottom: 18px;">
-      <img src="assets/project-cloudguardian-dark.svg" alt="CloudGuardian Dark">
-    </div>
-    <div class="card-preview light-mode-preview">
-      <img src="assets/project-uet-connect-light.svg" alt="UET Connect Light" style="margin-bottom: 18px;">
-      <img src="assets/project-apex-discipline-light.svg" alt="Apex Discipline Light" style="margin-bottom: 18px;">
-      <img src="assets/project-cloudguardian-light.svg" alt="CloudGuardian Light">
-    </div>
+    <!-- 02 / TOOLBOX -->
+    <div class="section-num">02 / TOOLBOX</div>
+    <img src="assets/toolbox-dark.svg" alt="Toolbox Dark">
 
-    <!-- TOOLBOX -->
-    <div class="theme-toggle-title">04 / CUSTOM TOOLBOX STRIP</div>
-    <div class="card-preview dark-mode-preview">
-      <img src="assets/toolbox-dark.svg" alt="Toolbox Dark">
-    </div>
-    <div class="card-preview light-mode-preview">
-      <img src="assets/toolbox-light.svg" alt="Toolbox Light">
-    </div>
+    <!-- 03 / SKILL RADARS -->
+    <div class="section-num">03 / SKILL &amp; LANGUAGE RADARS</div>
+    <img src="assets/radars-dark.svg" alt="Radars Dark">
 
-    <!-- CODE COMPOSITION -->
-    <div class="theme-toggle-title">05 / ENLARGED CODE COMPOSITION</div>
-    <div class="card-preview dark-mode-preview">
-      <img src="assets/languages-dark.svg" alt="Languages Dark">
-    </div>
-    <div class="card-preview light-mode-preview">
-      <img src="assets/languages-light.svg" alt="Languages Light">
-    </div>
+    <!-- 04 / SELECTED PROJECTS -->
+    <div class="section-num">04 / SELECTED PROJECTS</div>
+    <img src="assets/project-uet-connect-dark.svg" alt="UET Connect" style="margin-bottom: 16px;">
+    <img src="assets/project-apex-discipline-dark.svg" alt="Apex Discipline" style="margin-bottom: 16px;">
+    <img src="assets/project-cloudguardian-dark.svg" alt="CloudGuardian AI">
 
-    <!-- JOURNEY TIMELINE -->
-    <div class="theme-toggle-title">06 / CUSTOM JOURNEY TIMELINE</div>
-    <div class="card-preview dark-mode-preview">
-      <img src="assets/journey-dark.svg" alt="Journey Dark">
-    </div>
-    <div class="card-preview light-mode-preview">
-      <img src="assets/journey-light.svg" alt="Journey Light">
-    </div>
+    <!-- 05 / 3D CONTRIBUTIONS -->
+    <div class="section-num">05 / 3D CONTRIBUTION CALENDAR</div>
+    <img src="assets/contributions-3d-dark.svg" alt="3D Contributions Dark">
 
-    <!-- REPOSITORY RHYTHM -->
-    <div class="theme-toggle-title">07 / REPOSITORY RHYTHM (ACTIVITY TIMELINE)</div>
-    <div class="card-preview dark-mode-preview">
-      <img src="assets/pulse-dark.svg" alt="Pulse Dark">
-    </div>
-    <div class="card-preview light-mode-preview">
-      <img src="assets/pulse-light.svg" alt="Pulse Light">
-    </div>
+    <!-- 06 / JOURNEY -->
+    <div class="section-num">06 / JOURNEY</div>
+    <img src="assets/journey-dark.svg" alt="Journey Dark">
 
-    <!-- SIGNATURE -->
-    <div class="theme-toggle-title">08 / PURE TYPOGRAPHIC SIGNATURE</div>
-    <div class="card-preview dark-mode-preview" style="text-align: center;">
+    <!-- 07 / PROFILE STATS -->
+    <div class="section-num">07 / PROFILE STATS</div>
+    <img src="assets/stats-dark.svg" alt="Stats Dark">
+
+    <!-- 08 / SIGNATURE -->
+    <div style="text-align: center; margin-top: 40px;">
       <img src="assets/signature-dark.svg" alt="Signature Dark" style="display: inline-block;">
-    </div>
-    <div class="card-preview light-mode-preview" style="text-align: center;">
-      <img src="assets/signature-light.svg" alt="Signature Light" style="display: inline-block;">
-    </div>
-  </div>
-
-  <!-- MOBILE GITHUB READABILITY CONTAINER (380px MAX-WIDTH) -->
-  <div class="github-mobile-container">
-    <div style="font-family: ui-monospace, monospace; font-size: 12px; color: #8B6F47; font-weight: 700; margin-bottom: 12px; text-anchor: middle;">
-      [MODE 2] MOBILE SIMULATION (380px WIDTH)
-    </div>
-    <div class="card-preview dark-mode-preview">
-      <img src="assets/hero-dark.svg" alt="Hero Dark Mobile" style="margin-bottom: 12px;">
-      <img src="assets/project-cloudguardian-dark.svg" alt="CloudGuardian Dark Mobile" style="margin-bottom: 12px;">
-      <img src="assets/toolbox-dark.svg" alt="Toolbox Dark Mobile" style="margin-bottom: 12px;">
-      <img src="assets/languages-dark.svg" alt="Languages Dark Mobile" style="margin-bottom: 12px;">
-      <img src="assets/journey-dark.svg" alt="Journey Dark Mobile" style="margin-bottom: 12px;">
-      <img src="assets/pulse-dark.svg" alt="Pulse Dark Mobile">
     </div>
   </div>
 </body>
