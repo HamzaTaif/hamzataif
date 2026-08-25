@@ -1,5 +1,6 @@
 import os
 import re
+import math
 from PIL import Image, ImageEnhance
 
 def extract_existing_portrait(svg_path):
@@ -28,7 +29,7 @@ def generate_portrait_elements(input_path="hamza.png", is_dark=True):
 
     gray = resized.convert("L")
     enhancer = ImageEnhance.Contrast(gray)
-    gray_enhanced = enhancer.enhance(1.4)
+    gray_enhanced = enhancer.enhance(1.18)
 
     dot_spacing = 3.6
     offset_x = 0
@@ -58,24 +59,26 @@ def generate_portrait_elements(input_path="hamza.png", is_dark=True):
             if fade <= 0.05:
                 continue
 
-            lum = gray_enhanced.getpixel((gx, gy)) / 255.0
+            raw_lum = gray_enhanced.getpixel((gx, gy)) / 255.0
+            lum = math.pow(raw_lum, 0.85)
+
             cx = round(offset_x + gx * dot_spacing, 1)
             cy = round(offset_y + gy * dot_spacing, 1)
 
             if is_dark:
-                if lum > 0.1:
-                    r_dot = round((0.5 + lum * 1.15) * fade, 1)
-                    if lum > 0.62:
+                if lum > 0.08:
+                    r_dot = round((0.42 + lum * 1.05) * fade, 1)
+                    if lum > 0.60:
                         col = "#F5F4F1"
-                        op = round(min(1.0, (0.6 + lum * 0.4) * fade), 1)
-                    elif lum > 0.32:
+                        op = round(min(1.0, (0.55 + lum * 0.45) * fade), 1)
+                    elif lum > 0.28:
                         col = "#8B6F47"
-                        op = round(min(1.0, (0.65 + lum * 0.35) * fade), 1)
+                        op = round(min(1.0, (0.55 + lum * 0.4) * fade), 1)
                     else:
-                        col = "#B5B0A6"
-                        op = round(min(1.0, (0.45 + lum * 0.5) * fade), 1)
+                        col = "#9E8B70" if gy < 42 else "#A8A49C"
+                        op = round(min(1.0, (0.35 + lum * 0.45) * fade), 1)
 
-                    if r_dot >= 0.45 and op >= 0.08:
+                    if r_dot >= 0.4 and op >= 0.08:
                         key = (col, op)
                         if key not in groups:
                             groups[key] = []
@@ -83,19 +86,19 @@ def generate_portrait_elements(input_path="hamza.png", is_dark=True):
                         total_dots += 1
             else:
                 inv_lum = 1.0 - lum
-                if inv_lum > 0.1:
-                    r_dot = round((0.5 + inv_lum * 1.15) * fade, 1)
+                if inv_lum > 0.08:
+                    r_dot = round((0.42 + inv_lum * 1.05) * fade, 1)
                     if inv_lum > 0.55:
                         col = "#1A1917"
-                        op = round(min(1.0, (0.6 + inv_lum * 0.4) * fade), 1)
-                    elif inv_lum > 0.28:
+                        op = round(min(1.0, (0.55 + inv_lum * 0.45) * fade), 1)
+                    elif inv_lum > 0.25:
                         col = "#8B6F47"
-                        op = round(min(1.0, (0.65 + inv_lum * 0.35) * fade), 1)
+                        op = round(min(1.0, (0.55 + inv_lum * 0.4) * fade), 1)
                     else:
                         col = "#55524C"
-                        op = round(min(1.0, (0.45 + inv_lum * 0.5) * fade), 1)
+                        op = round(min(1.0, (0.35 + inv_lum * 0.45) * fade), 1)
 
-                    if r_dot >= 0.45 and op >= 0.08:
+                    if r_dot >= 0.4 and op >= 0.08:
                         key = (col, op)
                         if key not in groups:
                             groups[key] = []
@@ -114,7 +117,6 @@ def generate_portrait_elements(input_path="hamza.png", is_dark=True):
 def create_hero_svg(is_dark=True):
     bg = "#0D0C0A" if is_dark else "#FAF9F6"
     text_primary = "#F5F4F1" if is_dark else "#1A1917"
-    # Dark Mode TAIF text color set to #8B6F47 (Warm Bronze) for 100% readability & visual impact!
     text_taif = "#8B6F47" if is_dark else "#8B6F47"
     text_muted = "#A6A29A" if is_dark else "#6E6A63"
     line_color = "#3A3935" if is_dark else "#E2E0D8"
@@ -176,7 +178,7 @@ def main():
         f.write(create_hero_svg(is_dark=True))
     with open("assets/hero-light.svg", "w", encoding="utf-8") as f:
         f.write(create_hero_svg(is_dark=False))
-    print("Generated assets/hero-dark.svg and assets/hero-light.svg with high-contrast typography and refined portrait.")
+    print("Generated assets/hero-dark.svg and assets/hero-light.svg with refined facial midtones.")
 
 if __name__ == "__main__":
     main()

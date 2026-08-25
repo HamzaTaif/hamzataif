@@ -7,23 +7,21 @@
 </div>
 
 <br />
-<br />
 
 I'm a Software Engineering student at UET Peshawar building full-stack apps and AI tools — from interface to backend.
 
-<br />
 <br />
 
 ### <span style="color: #8B6F47;">01 /</span> NOW
 
 **Cross-platform apps**  
-Building Flutter applications for real campus and personal use cases.
+Building cross-platform apps for campus and everyday use.
 
 **AI &amp; backend**  
 Experimenting with FastAPI services and LLM API integrations, mostly in Python.
 
 **Product development**  
-Taking projects from interface design through backend implementation and deployment.
+Taking projects from interface to backend and deployment.
 
 <br />
 <br />

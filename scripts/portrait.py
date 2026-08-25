@@ -15,16 +15,16 @@ def generate_portrait_svg(input_path="hamza.png", output_dark="assets/portrait-d
     crop_h = int(h * 0.74)
     cropped = orig.crop((0, 0, w, crop_h))
 
-    # Grid dimensions: 84 cols x 100 rows for high-definition facial contrast at GitHub width
+    # Grid dimensions: 84 cols x 100 rows for fine stipple detail
     grid_w = 84
     grid_h = 100
     
     resized = cropped.resize((grid_w, grid_h), Image.Resampling.LANCZOS)
 
-    # Enhance contrast to ensure eyes, nose, beard, hair contours pop crisply
+    # Moderate contrast enhancement (1.18) to preserve facial midtones & eye clarity
     gray = resized.convert("L")
     enhancer = ImageEnhance.Contrast(gray)
-    gray_enhanced = enhancer.enhance(1.4)
+    gray_enhanced = enhancer.enhance(1.18)
 
     dot_spacing = 3.6
     offset_x = 10
@@ -39,7 +39,7 @@ def generate_portrait_svg(input_path="hamza.png", output_dark="assets/portrait-d
     for gy in range(grid_h):
         norm_y = gy / (grid_h - 1)
         
-        # Edge fade: dissolve towards bottom shoulders (bottom 25%) and top hairline
+        # Edge fade: dissolve towards bottom shoulders and top hairline
         if norm_y > 0.74:
             edge_fade = 1.0 - ((norm_y - 0.74) / 0.26)
         elif norm_y < 0.04:
@@ -49,7 +49,7 @@ def generate_portrait_svg(input_path="hamza.png", output_dark="assets/portrait-d
         
         for gx in range(grid_w):
             r, g, b, a = resized.getpixel((gx, gy))
-            if a < 25: # Skip transparent background
+            if a < 25:
                 continue
 
             norm_x = gx / (grid_w - 1)
@@ -60,25 +60,30 @@ def generate_portrait_svg(input_path="hamza.png", output_dark="assets/portrait-d
             if fade <= 0.05:
                 continue
 
-            lum = gray_enhanced.getpixel((gx, gy)) / 255.0
+            raw_lum = gray_enhanced.getpixel((gx, gy)) / 255.0
+            # Midtone curve to lift shadow areas (prevents eyes from looking like dark sunglasses)
+            lum = math.pow(raw_lum, 0.85)
+
             cx = round(offset_x + gx * dot_spacing, 1)
             cy = round(offset_y + gy * dot_spacing, 1)
 
             # --- DARK MODE ---
-            if lum > 0.1:
-                r_dark = round((0.5 + lum * 1.15) * fade, 1)
+            # Include dots even in darker facial areas with fine dot sizes & subtle bronze opacity
+            if lum > 0.08:
+                r_dark = round((0.42 + lum * 1.05) * fade, 1)
                 
-                if lum > 0.62:
+                if lum > 0.60:
                     color_dark = "#F5F4F1" # Bright Ivory highlight
-                    op_dark = round(min(1.0, (0.6 + lum * 0.4) * fade), 1)
-                elif lum > 0.32:
+                    op_dark = round(min(1.0, (0.55 + lum * 0.45) * fade), 1)
+                elif lum > 0.28:
                     color_dark = "#8B6F47" # Warm bronze accent
-                    op_dark = round(min(1.0, (0.65 + lum * 0.35) * fade), 1)
+                    op_dark = round(min(1.0, (0.55 + lum * 0.4) * fade), 1)
                 else:
-                    color_dark = "#B5B0A6" # Muted ivory shadow detail
-                    op_dark = round(min(1.0, (0.45 + lum * 0.5) * fade), 1)
+                    # Eye & eyebrow shadow detail: subtle warm bronze & muted ivory
+                    color_dark = "#9E8B70" if gy < 45 else "#A8A49C"
+                    op_dark = round(min(1.0, (0.35 + lum * 0.45) * fade), 1)
 
-                if r_dark >= 0.45 and op_dark >= 0.08:
+                if r_dark >= 0.4 and op_dark >= 0.08:
                     key = (color_dark, op_dark)
                     if key not in dark_groups:
                         dark_groups[key] = []
@@ -87,20 +92,20 @@ def generate_portrait_svg(input_path="hamza.png", output_dark="assets/portrait-d
 
             # --- LIGHT MODE ---
             inv_lum = 1.0 - lum
-            if inv_lum > 0.1:
-                r_light = round((0.5 + inv_lum * 1.15) * fade, 1)
+            if inv_lum > 0.08:
+                r_light = round((0.42 + inv_lum * 1.05) * fade, 1)
                 
                 if inv_lum > 0.55:
                     color_light = "#1A1917" # Dark graphite
-                    op_light = round(min(1.0, (0.6 + inv_lum * 0.4) * fade), 1)
-                elif inv_lum > 0.28:
+                    op_light = round(min(1.0, (0.55 + inv_lum * 0.45) * fade), 1)
+                elif inv_lum > 0.25:
                     color_light = "#8B6F47" # Warm bronze
-                    op_light = round(min(1.0, (0.65 + inv_lum * 0.35) * fade), 1)
+                    op_light = round(min(1.0, (0.55 + inv_lum * 0.4) * fade), 1)
                 else:
-                    color_light = "#55524C" # Muted dark gray
-                    op_light = round(min(1.0, (0.45 + inv_lum * 0.5) * fade), 1)
+                    color_light = "#55524C"
+                    op_light = round(min(1.0, (0.35 + inv_lum * 0.45) * fade), 1)
 
-                if r_light >= 0.45 and op_light >= 0.08:
+                if r_light >= 0.4 and op_light >= 0.08:
                     key = (color_light, op_light)
                     if key not in light_groups:
                         light_groups[key] = []
