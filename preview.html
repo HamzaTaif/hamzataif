@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Hamza Taif — GitHub Profile Complete Preview</title>
+  <title>Hamza Taif — Reference Profile Structure Preview</title>
   <style>
     :root {
       --dark-bg: #0D0C0A;
@@ -42,7 +42,7 @@
       margin: 0 auto 50px auto;
       background-color: var(--dark-bg);
       border: 1px solid var(--border-dark);
-      padding: 30px;
+      padding: 36px 30px;
       border-radius: 10px;
       box-shadow: 0 8px 32px rgba(0,0,0,0.5);
     }
@@ -75,6 +75,17 @@
       font-weight: 700;
       text-decoration: none;
     }
+    .placeholder-card {
+      background: #161b22;
+      border: 1px dashed #D4A359;
+      border-radius: 8px;
+      padding: 30px;
+      text-align: center;
+      font-family: ui-monospace, monospace;
+      font-size: 12px;
+      color: #D4A359;
+      line-height: 1.6;
+    }
     img {
       max-width: 100%;
       height: auto;
@@ -84,64 +95,74 @@
 </head>
 <body>
   <div class="preview-header">
-    <h1>HAMZA TAIF — COMPLETE GITHUB PROFILE PREVIEW</h1>
-    <p class="subtitle">Full vertical scroll experience (Simulated desktop container width: 880px)</p>
+    <h1>HAMZA TAIF — REFERENCE PROFILE STRUCTURE PREVIEW</h1>
+    <p class="subtitle">Simulated Desktop Container Width (880px)</p>
   </div>
 
   <div class="github-container">
-    <!-- 01 / HERO & PORTRAIT -->
+    <!-- 01 / CENTERED PORTRAIT -->
     <div style="text-align: center;">
-      <img src="assets/hero-dark.svg" alt="Hero Dark">
-      <div class="social-bar">
-        <span class="social-badge">PORTFOLIO</span>
-        <span class="social-badge">GITHUB</span>
-        <span class="social-badge">TWITTER / X</span>
-        <span class="social-badge">EMAIL</span>
+      <div style="display: inline-block; width: 280px;">
+        <img src="assets/portrait-dark.svg" alt="Centered Stipple Portrait">
       </div>
     </div>
 
-    <!-- INTRO & NOW -->
-    <p style="font-size: 14.5px; color: #F5F4F1; line-height: 1.6; margin-top: 24px;">
-      I'm a Software Engineering student at UET Peshawar building full-stack apps and AI tools — from interface to backend.
-    </p>
-
-    <div class="section-num">01 / NOW</div>
-    <div style="font-size: 13.5px; color: #A6A29A; line-height: 1.8;">
-      <strong style="color: #F5F4F1;">Cross-platform apps</strong><br>
-      Building cross-platform apps for campus and everyday use.<br><br>
-      <strong style="color: #F5F4F1;">AI &amp; backend</strong><br>
-      Experimenting with FastAPI services and LLM API integrations, mostly in Python.<br><br>
-      <strong style="color: #F5F4F1;">Product development</strong><br>
-      Taking projects from interface to backend and deployment.
+    <!-- CENTERED TYPING IDENTITY -->
+    <div style="margin-top: 12px;">
+      <img src="assets/typing-dark.svg" alt="Centered Typing Identity">
     </div>
 
-    <!-- 02 / TOOLBOX -->
-    <div class="section-num">02 / TOOLBOX</div>
+    <!-- SOCIAL BUTTONS -->
+    <div class="social-bar">
+      <span class="social-badge">LINKEDIN</span>
+      <span class="social-badge">EMAIL</span>
+      <span class="social-badge" style="color: #61DAFB;">PORTFOLIO</span>
+      <span class="social-badge" style="color: #F5F4F1;">GITHUB</span>
+      <span class="social-badge" style="color: #F5F4F1;">TWITTER / X</span>
+    </div>
+
+    <!-- SHORT ABOUT -->
+    <blockquote style="font-size: 14px; color: #A6A29A; border-left: 3px solid #D4A359; margin: 20px 0; padding-left: 14px;">
+      I'm a Software Engineering student at UET Peshawar building full-stack apps and AI tools — from interface to backend.
+    </blockquote>
+
+    <!-- TOOLBOX -->
+    <div class="section-num">~/ TOOLBOX</div>
     <img src="assets/toolbox-dark.svg" alt="Toolbox Dark">
 
-    <!-- 03 / SKILL RADARS -->
-    <div class="section-num">03 / SKILL &amp; LANGUAGE RADARS</div>
+    <!-- 01 / SKILL & LANGUAGE RADARS -->
+    <div class="section-num">01 / SKILL &amp; LANGUAGE RADARS</div>
     <img src="assets/radars-dark.svg" alt="Radars Dark">
 
-    <!-- 04 / SELECTED PROJECTS -->
-    <div class="section-num">04 / SELECTED PROJECTS</div>
+    <!-- 02 / 3D CONTRIBUTION CALENDAR -->
+    <div class="section-num">02 / 3D CONTRIBUTION CALENDAR (LOWLIGHTER METRICS)</div>
+    <div class="placeholder-card">
+      <strong>[ 3D CONTRIBUTION CALENDAR ]</strong><br>
+      Will be generated live via <code>.github/workflows/metrics.yml</code> using <code>lowlighter/metrics</code> on GitHub.
+    </div>
+
+    <!-- 03 / CONTRIBUTION SNAKE -->
+    <div class="section-num">03 / CONTRIBUTION SNAKE (PLATANE/SNK)</div>
+    <div class="placeholder-card">
+      <strong>[ ANIMATED CONTRIBUTION SNAKE ]</strong><br>
+      Will be generated live via <code>.github/workflows/snake.yml</code> using <code>Platane/snk</code> and published to <code>output</code> branch.
+    </div>
+
+    <!-- 04 / GITHUB STATS -->
+    <div class="section-num">04 / GITHUB STATS</div>
+    <img src="assets/stats-dark.svg" alt="Stats Dark">
+
+    <!-- 05 / SELECTED PROJECTS -->
+    <div class="section-num">05 / SELECTED PROJECTS</div>
     <img src="assets/project-uet-connect-dark.svg" alt="UET Connect" style="margin-bottom: 16px;">
     <img src="assets/project-apex-discipline-dark.svg" alt="Apex Discipline" style="margin-bottom: 16px;">
     <img src="assets/project-cloudguardian-dark.svg" alt="CloudGuardian AI">
-
-    <!-- 05 / 3D CONTRIBUTIONS -->
-    <div class="section-num">05 / 3D CONTRIBUTION CALENDAR</div>
-    <img src="assets/contributions-3d-dark.svg" alt="3D Contributions Dark">
 
     <!-- 06 / JOURNEY -->
     <div class="section-num">06 / JOURNEY</div>
     <img src="assets/journey-dark.svg" alt="Journey Dark">
 
-    <!-- 07 / PROFILE STATS -->
-    <div class="section-num">07 / PROFILE STATS</div>
-    <img src="assets/stats-dark.svg" alt="Stats Dark">
-
-    <!-- 08 / SIGNATURE -->
+    <!-- 07 / SIGNATURE -->
     <div style="text-align: center; margin-top: 40px;">
       <img src="assets/signature-dark.svg" alt="Signature Dark" style="display: inline-block;">
     </div>

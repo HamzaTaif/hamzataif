@@ -1,41 +1,39 @@
 <div align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/hero-dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset="assets/hero-light.svg">
-    <img src="assets/hero-dark.svg" alt="Hamza Taif — Software Engineering, AI, Full-Stack App Development" width="100%" />
+    <source media="(prefers-color-scheme: dark)" srcset="assets/portrait-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="assets/portrait-light.svg">
+    <img src="assets/portrait-dark.svg" alt="Hamza Taif Stipple Portrait" width="280" />
   </picture>
 </div>
 
 <br />
 
 <div align="center">
-  <a href="https://hamzataif.me"><img src="https://img.shields.io/badge/PORTFOLIO-12110E?style=for-the-badge&logo=googlechrome&logoColor=D4A359" alt="Portfolio"></a>
-  <a href="https://github.com/HamzaTaif"><img src="https://img.shields.io/badge/GITHUB-12110E?style=for-the-badge&logo=github&logoColor=D4A359" alt="GitHub"></a>
-  <a href="https://x.com/Hamza_Taif_Khan"><img src="https://img.shields.io/badge/TWITTER/X-12110E?style=for-the-badge&logo=x&logoColor=D4A359" alt="Twitter"></a>
-  <a href="mailto:contact@hamzataif.me"><img src="https://img.shields.io/badge/EMAIL-12110E?style=for-the-badge&logo=gmail&logoColor=D4A359" alt="Email"></a>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/typing-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="assets/typing-light.svg">
+    <img src="assets/typing-dark.svg" alt="Hamza Taif Typing Identity" width="100%" />
+  </picture>
 </div>
 
 <br />
 
-I'm a Software Engineering student at UET Peshawar building full-stack apps and AI tools — from interface to backend.
+<div align="center">
+  <a href="https://linkedin.com/in/hamzataif"><img src="https://img.shields.io/badge/LINKEDIN-12110E?style=for-the-badge&logo=linkedin&logoColor=0A66C2" alt="LinkedIn"></a>
+  <a href="mailto:contact@hamzataif.me"><img src="https://img.shields.io/badge/EMAIL-12110E?style=for-the-badge&logo=gmail&logoColor=EA4335" alt="Email"></a>
+  <a href="https://hamzataif.me"><img src="https://img.shields.io/badge/PORTFOLIO-12110E?style=for-the-badge&logo=googlechrome&logoColor=D4A359" alt="Portfolio"></a>
+  <a href="https://github.com/HamzaTaif"><img src="https://img.shields.io/badge/GITHUB-12110E?style=for-the-badge&logo=github&logoColor=F5F4F1" alt="GitHub"></a>
+  <a href="https://x.com/Hamza_Taif_Khan"><img src="https://img.shields.io/badge/TWITTER/X-12110E?style=for-the-badge&logo=x&logoColor=F5F4F1" alt="Twitter"></a>
+</div>
 
 <br />
 
-### <span style="color: #D4A359;">01 /</span> NOW
-
-**Cross-platform apps**  
-Building cross-platform apps for campus and everyday use.
-
-**AI &amp; backend**  
-Experimenting with FastAPI services and LLM API integrations, mostly in Python.
-
-**Product development**  
-Taking projects from interface to backend and deployment.
+> I'm a Software Engineering student at UET Peshawar building full-stack apps and AI tools — from interface to backend.
 
 <br />
 <br />
 
-### <span style="color: #D4A359;">02 /</span> TOOLBOX
+### <span style="color: #D4A359;">~/</span> TOOLBOX
 
 <br />
 
@@ -50,7 +48,7 @@ Taking projects from interface to backend and deployment.
 <br />
 <br />
 
-### <span style="color: #D4A359;">03 /</span> SKILL &amp; LANGUAGE RADARS
+### <span style="color: #D4A359;">01 /</span> SKILL &amp; LANGUAGE RADARS
 
 <br />
 
@@ -65,7 +63,48 @@ Taking projects from interface to backend and deployment.
 <br />
 <br />
 
-### <span style="color: #D4A359;">04 /</span> SELECTED PROJECTS
+### <span style="color: #D4A359;">02 /</span> 3D CONTRIBUTION CALENDAR
+
+<br />
+
+<div align="center">
+  <img src="github-metrics.svg" alt="3D Isometric Contribution Calendar (Generated via GitHub Actions metrics.yml)" width="100%" />
+</div>
+
+<br />
+<br />
+
+### <span style="color: #D4A359;">03 /</span> CONTRIBUTION SNAKE
+
+<br />
+
+<div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/HamzaTaif/hamzataif/output/github-contribution-grid-snake-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/HamzaTaif/hamzataif/output/github-contribution-grid-snake.svg">
+    <img src="https://raw.githubusercontent.com/HamzaTaif/hamzataif/output/github-contribution-grid-snake-dark.svg" alt="Animated Contribution Grid Snake (Generated via GitHub Actions snake.yml)" width="100%" />
+  </picture>
+</div>
+
+<br />
+<br />
+
+### <span style="color: #D4A359;">04 /</span> GITHUB STATS
+
+<br />
+
+<div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/stats-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="assets/stats-light.svg">
+    <img src="assets/stats-dark.svg" alt="GitHub Profile Statistics" width="100%" />
+  </picture>
+</div>
+
+<br />
+<br />
+
+### <span style="color: #D4A359;">05 /</span> SELECTED WORK
 
 <br />
 
@@ -100,37 +139,7 @@ Taking projects from interface to backend and deployment.
 <br />
 <br />
 
-### <span style="color: #D4A359;">05 /</span> 3D CONTRIBUTION CALENDAR
-
-<br />
-
-<div align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/contributions-3d-dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset="assets/contributions-3d-light.svg">
-    <img src="assets/contributions-3d-dark.svg" alt="3D Isometric Contribution Calendar" width="100%" />
-  </picture>
-</div>
-
-<br />
-<br />
-
-### <span style="color: #D4A359;">06 /</span> CONTRIBUTION SNAKE
-
-<br />
-
-<div align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/github-contribution-grid-snake-dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset="assets/github-contribution-grid-snake.svg">
-    <img src="assets/github-contribution-grid-snake-dark.svg" alt="Contribution Grid Snake Animation" width="100%" />
-  </picture>
-</div>
-
-<br />
-<br />
-
-### <span style="color: #D4A359;">07 /</span> JOURNEY
+### <span style="color: #D4A359;">06 /</span> JOURNEY
 
 <br />
 
@@ -145,22 +154,7 @@ Taking projects from interface to backend and deployment.
 <br />
 <br />
 
-### <span style="color: #D4A359;">08 /</span> PROFILE STATS
-
-<br />
-
-<div align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/stats-dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset="assets/stats-light.svg">
-    <img src="assets/stats-dark.svg" alt="GitHub Profile Statistics" width="100%" />
-  </picture>
-</div>
-
-<br />
-<br />
-
-### <span style="color: #D4A359;">09 /</span> CONNECT
+### <span style="color: #D4A359;">07 /</span> CONNECT
 
 * [hamzataif.me](https://hamzataif.me) &nbsp;—&nbsp; Portfolio ↗
 * [github.com/HamzaTaif](https://github.com/HamzaTaif) &nbsp;—&nbsp; GitHub ↗

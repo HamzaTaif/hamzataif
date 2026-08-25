@@ -3,7 +3,7 @@ import math
 import json
 import urllib.request
 
-def fetch_language_data(username="HamzaTaif"):
+def fetch_language_bytes(username="HamzaTaif"):
     url = f"https://api.github.com/users/{username}/repos?per_page=100"
     headers = {"User-Agent": "HamzaTaif-Profile-Generator"}
     token = os.environ.get("GITHUB_TOKEN")
@@ -24,7 +24,7 @@ def fetch_language_data(username="HamzaTaif"):
         pass
     
     if not lang_counts:
-        lang_counts = {"Python": 5, "TypeScript": 3, "JavaScript": 4, "Dart": 4, "C++": 2}
+        lang_counts = {"Python": 5, "TypeScript": 4, "JavaScript": 4, "Dart": 5, "C++": 2}
     return lang_counts
 
 def draw_radar(cx, cy, radius, axes, values, is_dark, gold_color="#D4A359"):
@@ -35,7 +35,6 @@ def draw_radar(cx, cy, radius, axes, values, is_dark, gold_color="#D4A359"):
     angle_step = (2 * math.pi) / n
 
     xml = ""
-    # Concentric polygon webs (25%, 50%, 75%, 100%)
     for level in [0.25, 0.5, 0.75, 1.0]:
         r_level = radius * level
         pts = []
@@ -46,7 +45,6 @@ def draw_radar(cx, cy, radius, axes, values, is_dark, gold_color="#D4A359"):
             pts.append(f"{px:.1f},{py:.1f}")
         xml += f'<polygon points="{" ".join(pts)}" fill="none" stroke="{line_color}" stroke-width="1" stroke-dasharray="2,2" />\n'
 
-    # Radial axes & vertex labels
     poly_data_pts = []
     for i, (axis_label, val) in enumerate(zip(axes, values)):
         angle = i * angle_step - math.pi / 2
@@ -54,13 +52,11 @@ def draw_radar(cx, cy, radius, axes, values, is_dark, gold_color="#D4A359"):
         ay = cy + radius * math.sin(angle)
         xml += f'<line x1="{cx}" y1="{cy}" x2="{ax}" y2="{ay}" stroke="{line_color}" stroke-width="1" />\n'
 
-        # Value point
         r_val = radius * (val / 100.0)
         vx = cx + r_val * math.cos(angle)
         vy = cy + r_val * math.sin(angle)
         poly_data_pts.append(f"{vx:.1f},{vy:.1f}")
 
-        # Label offset
         lx = cx + (radius + 24) * math.cos(angle)
         ly = cy + (radius + 24) * math.sin(angle) + 4
         anchor = "middle"
@@ -69,13 +65,11 @@ def draw_radar(cx, cy, radius, axes, values, is_dark, gold_color="#D4A359"):
         elif math.cos(angle) < -0.2:
             anchor = "end"
 
-        xml += f'<text x="{lx:.1f}" y="{ly:.1f}" font-family="ui-monospace, SFMono-Regular, monospace" font-size="11" font-weight="700" fill="{text_primary}" text-anchor="{anchor}">{axis_label}</text>\n'
+        xml += f'<text x="{lx:.1f}" y="{ly:.1f}" font-family="ui-monospace, SFMono-Regular, monospace" font-size="11.5" font-weight="700" fill="{text_primary}" text-anchor="{anchor}">{axis_label}</text>\n'
 
-    # Filled data polygon
     fill_color = "rgba(212, 163, 89, 0.28)" if is_dark else "rgba(139, 111, 71, 0.22)"
     xml += f'<polygon points="{" ".join(poly_data_pts)}" fill="{fill_color}" stroke="{gold_color}" stroke-width="2.5" />\n'
 
-    # Data vertex dots
     for pt in poly_data_pts:
         px, py = pt.split(",")
         xml += f'<circle cx="{px}" cy="{py}" r="4" fill="{gold_color}" stroke="{text_primary}" stroke-width="1.5" />\n'
@@ -84,20 +78,18 @@ def draw_radar(cx, cy, radius, axes, values, is_dark, gold_color="#D4A359"):
 
 def create_radars_svg(is_dark=True):
     bg = "#0D0C0A" if is_dark else "#FAF9F6"
-    text_muted = "#A6A29A" if is_dark else "#6E6A63"
     line_color = "#3A3935" if is_dark else "#E2E0D8"
     accent = "#D4A359" if is_dark else "#8B6F47"
     gold = "#E5B869" if is_dark else "#8B6F47"
 
-    # Chart 1: Skill Radar
-    skill_axes = ["Full-Stack", "Flutter/Apps", "Backend/APIs", "AI Integration", "Databases", "DevOps"]
-    skill_vals = [88, 92, 85, 80, 78, 70]
+    # Left Radar: Engineering Focus
+    skill_axes = ["Flutter / Apps", "Full-Stack", "Backend / APIs", "AI Integration", "Databases", "C++ / DSA"]
+    skill_vals = [92, 88, 85, 80, 78, 72]
     left_radar = draw_radar(220, 200, 95, skill_axes, skill_vals, is_dark, gold_color=gold)
 
-    # Chart 2: Language Mix
-    lang_counts = fetch_language_data("HamzaTaif")
-    total = sum(lang_counts.values())
-    top_langs = sorted(lang_counts.items(), key=lambda x: x[1], reverse=True)[:5]
+    # Right Radar: Language Mix (real API counts)
+    lang_counts = fetch_language_bytes("HamzaTaif")
+    top_langs = sorted(lang_counts.items(), key=lambda x: x[1], reverse=True)[:6]
     
     lang_axes = [l[0] for l in top_langs]
     max_count = max(l[1] for l in top_langs) if top_langs else 1
@@ -132,7 +124,7 @@ def main():
         f.write(create_radars_svg(is_dark=True))
     with open("assets/radars-light.svg", "w", encoding="utf-8") as f:
         f.write(create_radars_svg(is_dark=False))
-    print("Generated assets/radars-dark.svg and assets/radars-light.svg (side-by-side radar charts)")
+    print("Generated assets/radars-dark.svg and assets/radars-light.svg")
 
 if __name__ == "__main__":
     main()

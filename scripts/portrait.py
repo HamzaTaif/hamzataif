@@ -9,26 +9,23 @@ def generate_portrait_svg(input_path="hamza.png", output_dark="assets/portrait-d
         return
 
     orig = Image.open(input_path).convert("RGBA")
-    
-    # Crop to head + shoulders + upper chest
     w, h = orig.size
     crop_h = int(h * 0.75)
     cropped = orig.crop((0, 0, w, crop_h))
 
-    # Grid dimensions: 90 cols x 106 rows for high-fidelity facial detail
-    grid_w = 90
-    grid_h = 106
+    # Grid: 86 cols x 102 rows for high facial resolution
+    grid_w = 86
+    grid_h = 102
     
     resized = cropped.resize((grid_w, grid_h), Image.Resampling.LANCZOS)
 
-    # Moderate contrast enhancement (1.15)
     gray = resized.convert("L")
     enhancer = ImageEnhance.Contrast(gray)
     gray_enhanced = enhancer.enhance(1.15)
 
     dot_spacing = 3.5
-    offset_x = 10
-    offset_y = 10
+    offset_x = 20
+    offset_y = 12
 
     dark_groups = {}
     light_groups = {}
@@ -38,15 +35,13 @@ def generate_portrait_svg(input_path="hamza.png", output_dark="assets/portrait-d
 
     for gy in range(grid_h):
         norm_y = gy / (grid_h - 1)
-        
-        # Edge fade: dissolve towards bottom shoulders and top hairline
         if norm_y > 0.74:
             edge_fade = 1.0 - ((norm_y - 0.74) / 0.26)
         elif norm_y < 0.04:
             edge_fade = norm_y / 0.04
         else:
             edge_fade = 1.0
-        
+
         for gx in range(grid_w):
             r, g, b, a = resized.getpixel((gx, gy))
             if a < 25:
@@ -55,7 +50,6 @@ def generate_portrait_svg(input_path="hamza.png", output_dark="assets/portrait-d
             norm_x = gx / (grid_w - 1)
             dist_center = abs(norm_x - 0.5) * 2.0
             side_fade = 1.0 if dist_center < 0.74 else (1.0 - (dist_center - 0.74)/0.26)
-            
             fade = edge_fade * side_fade
             if fade <= 0.04:
                 continue
@@ -66,7 +60,7 @@ def generate_portrait_svg(input_path="hamza.png", output_dark="assets/portrait-d
             cx = round(offset_x + gx * dot_spacing, 1)
             cy = round(offset_y + gy * dot_spacing, 1)
 
-            # --- DARK MODE PALETTE (Ivory, Gold, Warm Amber, Burnt Orange, Bronze) ---
+            # --- DARK MODE ---
             if lum > 0.06:
                 r_dark = round((0.45 + lum * 1.1) * fade, 1)
                 
@@ -80,10 +74,10 @@ def generate_portrait_svg(input_path="hamza.png", output_dark="assets/portrait-d
                     color_dark = "#D4A359" # Amber
                     op_dark = round(min(1.0, (0.55 + lum * 0.4) * fade), 1)
                 elif lum > 0.16:
-                    color_dark = "#C86D3B" # Burnt Orange accent
+                    color_dark = "#C86D3B" # Burnt Orange
                     op_dark = round(min(1.0, (0.5 + lum * 0.45) * fade), 1)
                 else:
-                    color_dark = "#8B6F47" # Warm Bronze shadow detail
+                    color_dark = "#8B6F47" # Warm Bronze
                     op_dark = round(min(1.0, (0.4 + lum * 0.5) * fade), 1)
 
                 if r_dark >= 0.4 and op_dark >= 0.06:
@@ -93,22 +87,22 @@ def generate_portrait_svg(input_path="hamza.png", output_dark="assets/portrait-d
                     dark_groups[key].append(f'<circle cx="{cx}" cy="{cy}" r="{r_dark}"/>')
                     total_dots_dark += 1
 
-            # --- LIGHT MODE PALETTE ---
+            # --- LIGHT MODE ---
             inv_lum = 1.0 - lum
             if inv_lum > 0.06:
                 r_light = round((0.45 + inv_lum * 1.1) * fade, 1)
                 
                 if inv_lum > 0.60:
-                    color_light = "#1A1917" # Dark graphite
+                    color_light = "#1A1917"
                     op_light = round(min(1.0, (0.65 + inv_lum * 0.35) * fade), 1)
                 elif inv_lum > 0.38:
-                    color_light = "#8B6F47" # Bronze
+                    color_light = "#8B6F47"
                     op_light = round(min(1.0, (0.6 + inv_lum * 0.4) * fade), 1)
                 elif inv_lum > 0.20:
-                    color_light = "#C86D3B" # Burnt Orange
+                    color_light = "#C86D3B"
                     op_light = round(min(1.0, (0.55 + inv_lum * 0.4) * fade), 1)
                 else:
-                    color_light = "#D4A359" # Amber accent
+                    color_light = "#D4A359"
                     op_light = round(min(1.0, (0.4 + inv_lum * 0.5) * fade), 1)
 
                 if r_light >= 0.4 and op_light >= 0.06:
@@ -132,39 +126,41 @@ def generate_portrait_svg(input_path="hamza.png", output_dark="assets/portrait-d
         light_elements.append(f'<g fill="{col}"{op_attr}>' + ''.join(circles) + '</g>')
 
     dark_svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {svg_w} {svg_h}" width="100%" height="100%">
-  <title>Hamza Taif — Stylized Stipple Portrait Dark</title>
+  <title>Hamza Taif — Centered Stipple Portrait (Dark)</title>
   <style>
-    .stipple-portrait {{
-      animation: portraitReveal 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    .centered-portrait {{
+      animation: portraitFadeIn 1.8s ease-out forwards;
+      transform-origin: center;
     }}
-    @keyframes portraitReveal {{
-      from {{ opacity: 0; transform: translateY(8px); }}
-      to {{ opacity: 1; transform: translateY(0); }}
+    @keyframes portraitFadeIn {{
+      0% {{ opacity: 0; transform: scale(0.96) translateY(10px); }}
+      100% {{ opacity: 1; transform: scale(1) translateY(0); }}
     }}
     @media (prefers-reduced-motion: reduce) {{
-      .stipple-portrait {{ animation: none; opacity: 1; }}
+      .centered-portrait {{ animation: none; opacity: 1; }}
     }}
   </style>
-  <g class="stipple-portrait">
+  <g class="centered-portrait">
     {''.join(dark_elements)}
   </g>
 </svg>'''
 
     light_svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {svg_w} {svg_h}" width="100%" height="100%">
-  <title>Hamza Taif — Stylized Stipple Portrait Light</title>
+  <title>Hamza Taif — Centered Stipple Portrait (Light)</title>
   <style>
-    .stipple-portrait {{
-      animation: portraitReveal 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    .centered-portrait {{
+      animation: portraitFadeIn 1.8s ease-out forwards;
+      transform-origin: center;
     }}
-    @keyframes portraitReveal {{
-      from {{ opacity: 0; transform: translateY(8px); }}
-      to {{ opacity: 1; transform: translateY(0); }}
+    @keyframes portraitFadeIn {{
+      0% {{ opacity: 0; transform: scale(0.96) translateY(10px); }}
+      100% {{ opacity: 1; transform: scale(1) translateY(0); }}
     }}
     @media (prefers-reduced-motion: reduce) {{
-      .stipple-portrait {{ animation: none; opacity: 1; }}
+      .centered-portrait {{ animation: none; opacity: 1; }}
     }}
   </style>
-  <g class="stipple-portrait">
+  <g class="centered-portrait">
     {''.join(light_elements)}
   </g>
 </svg>'''
@@ -175,12 +171,7 @@ def generate_portrait_svg(input_path="hamza.png", output_dark="assets/portrait-d
     with open(output_light, "w", encoding="utf-8") as f:
         f.write(light_svg)
 
-    dark_size_kb = os.path.getsize(output_dark) / 1024.0
-    light_size_kb = os.path.getsize(output_light) / 1024.0
-
-    print(f"Generated {output_dark}: {dark_size_kb:.1f} KB ({total_dots_dark} dots)")
-    print(f"Generated {output_light}: {light_size_kb:.1f} KB ({total_dots_light} dots)")
-    print(f"Dimensions: {svg_w}x{svg_h} viewBox")
+    print(f"Generated standalone centered portrait SVGs: {svg_w}x{svg_h} viewBox")
 
 if __name__ == "__main__":
     input_file = sys.argv[1] if len(sys.argv) > 1 else "hamza.png"

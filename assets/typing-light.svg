@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 50" width="100%" height="100%">
+  <title>Hamza Taif — Animated Typing Identity</title>
+  <style>
+    .typing-text {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 22px;
+      font-weight: 700;
+      fill: #8B6F47;
+      text-anchor: middle;
+    }
+    .cursor {
+      font-family: ui-monospace, monospace;
+      font-size: 22px;
+      font-weight: 700;
+      fill: #1A1917;
+      animation: blink 0.8s infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+  </style>
+
+  <g transform="translate(325, 32)">
+    <text class="typing-text" x="0" y="0">
+      <tspan id="type-target"></tspan>
+      <tspan class="cursor">|</tspan>
+    </text>
+  </g>
+
+  <script type="text/javascript">
+    <![CDATA[
+    (function() {
+      var phrases = [
+        "Hamza Taif",
+        "Software Engineering",
+        "Full-Stack App Developer",
+        "AI Engineering",
+        "Building useful software."
+      ];
+      var target = document.getElementById("type-target");
+      if (!target) return;
+      
+      var pIndex = 0;
+      var cIndex = 0;
+      var isDeleting = false;
+      var typeSpeed = 90;
+
+      function typeLoop() {
+        var current = phrases[pIndex];
+        if (isDeleting) {
+          target.textContent = current.substring(0, cIndex - 1);
+          cIndex--;
+          typeSpeed = 45;
+        } else {
+          target.textContent = current.substring(0, cIndex + 1);
+          cIndex++;
+          typeSpeed = 90;
+        }
+
+        if (!isDeleting && cIndex === current.length) {
+          typeSpeed = 1800; // Pause at end of line
+          isDeleting = true;
+        } else if (isDeleting && cIndex === 0) {
+          isDeleting = false;
+          pIndex = (pIndex + 1) % phrases.length;
+          typeSpeed = 400; // Pause before next line
+        }
+
+        setTimeout(typeLoop, typeSpeed);
+      }
+
+      typeLoop();
+    })();
+    ]]>
+  </script>
+</svg>
