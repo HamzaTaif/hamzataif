@@ -9,6 +9,12 @@ def create_journey_svg(is_dark=True):
 
     milestones = [
         {
+            "year": "PRESENT",
+            "title": "CORE MEMBER",
+            "sub": "afzoni.com",
+            "desc": "Core engineering team member building digital products &amp; software platforms."
+        },
+        {
             "year": "2026",
             "title": "KIRO HACKATHON",
             "sub": "Ship With Kiro",
@@ -46,15 +52,15 @@ def create_journey_svg(is_dark=True):
         </g>\n'''
         my += 64
 
-    svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 170" width="100%" height="100%">
+    svg = f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 850 234" width="100%" height="100%">
   <title>Engineering Journey — Hamza Taif</title>
 
   <!-- Card Background -->
-  <rect x="0" y="0" width="850" height="170" rx="8" fill="{bg}" stroke="{line_color}" stroke-width="1" />
-  <rect x="0" y="0" width="3.5" height="170" fill="{accent}" />
+  <rect x="0" y="0" width="850" height="234" rx="8" fill="{bg}" stroke="{line_color}" stroke-width="1" />
+  <rect x="0" y="0" width="3.5" height="234" fill="{accent}" />
 
   <!-- Vertical Timeline Connector -->
-  <line x1="190" y1="45" x2="190" y2="110" stroke="{line_color}" stroke-width="1" stroke-dasharray="3,3" />
+  <line x1="190" y1="45" x2="190" y2="173" stroke="{line_color}" stroke-width="1" stroke-dasharray="3,3" />
 
   <!-- Milestones -->
   {items_xml}
@@ -71,3 +77,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

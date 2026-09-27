@@ -17,6 +17,7 @@
 </div>
 
 <div align="center">
+  <a href="https://afzoni.com"><img src="https://img.shields.io/badge/AFZONI-8B6F47?style=for-the-badge&logo=googlechrome&logoColor=FFFFFF" height="38" alt="Afzoni"></a>
   <a href="https://www.linkedin.com/in/hamza-taif-626853341/"><img src="https://img.shields.io/badge/LINKEDIN-0A66C2?style=for-the-badge&logo=linkedin&logoColor=FFFFFF" height="38" alt="LinkedIn"></a>
   <a href="mailto:itshamzakhan51@gmail.com"><img src="https://img.shields.io/badge/EMAIL-EA4335?style=for-the-badge&logo=gmail&logoColor=FFFFFF" height="38" alt="Email"></a>
   <a href="https://hamzataif.me"><img src="https://img.shields.io/badge/PORTFOLIO-D4A359?style=for-the-badge&logo=googlechrome&logoColor=12110E" height="38" alt="Portfolio"></a>
@@ -26,7 +27,7 @@
 
 <br />
 
-> I'm a Software Engineering student at UET Peshawar building full-stack apps and AI tools — from interface to backend.
+> Core Member at [Afzoni](https://afzoni.com) & Software Engineering student at UET Peshawar building full-stack apps and AI tools — from interface to backend.
 
 <br />
 <br />
@@ -154,6 +155,7 @@
 
 ### <span style="color: #D4A359;">CONNECT</span>
 
+* [afzoni.com](https://afzoni.com) &nbsp;—&nbsp; Core Member ↗
 * [hamzataif.me](https://hamzataif.me) &nbsp;—&nbsp; Portfolio ↗
 * [github.com/HamzaTaif](https://github.com/HamzaTaif) &nbsp;—&nbsp; GitHub ↗
 * [@Hamza\_Taif\_Khan](https://x.com/Hamza_Taif_Khan) &nbsp;—&nbsp; X / Twitter ↗
